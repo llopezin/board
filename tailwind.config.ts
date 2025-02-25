@@ -8,9 +8,17 @@ export default {
   ],
   theme: {
     extend: {
+      backgroundImage: {
+        'presas': "url('/presas.png')",
+      },
+      plugins: [],
+
       colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+        deepTeal: "#0E4F60",
+        vibrantOrange: "#FF6B35",
+        mutedSand: "#EAD7C0",
+        slateGray: "#4B5563",
+        brightSkyBlue: "#57C4E5",
       },
     },
   },
