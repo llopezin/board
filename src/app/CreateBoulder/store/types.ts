@@ -1,4 +1,4 @@
-import { Boulder, HoldId } from '@/app/components/Board/types'
+import { Boulder, HoldId, HoldTypes } from '@/app/components/Board/types'
 
 type NewBoulderStoreState = {
     boulder: Boulder;
@@ -6,8 +6,9 @@ type NewBoulderStoreState = {
 };
 
 type NewBoulderStoreAction = {
-    setHold: (hold: HoldId) => void;
+    setHold: (hold: HoldId, activeType: HoldTypes) => void;
     setActiveType: (type: keyof Boulder) => void;
+    removeHold: (hold: HoldId, activeType: HoldTypes) => void;
 };
 
 export type NewBoulderStore = NewBoulderStoreState & NewBoulderStoreAction;

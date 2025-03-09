@@ -3,7 +3,7 @@ import { ButtonProps } from './types'
 
 const Button = (props: ButtonProps) => {
   return (
-    <button className='' {...props}>{props.children}</button>
+    <button className='p-20' {...props}>{props.children}</button>
   )
 }
 

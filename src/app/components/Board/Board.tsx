@@ -12,7 +12,6 @@ function Board({ onClick, boulder }: BoardProps) {
 
     if (boulder && boardRef) paintBoulderOnBoard({ boardRef, boulder });
 
-    console.log('boulder: ', boulder);
     return (
         <>
             <div className="h-auto w-screen bg-presas bg-contain bg-no-repeat" ref={boardRef}>

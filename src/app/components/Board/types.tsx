@@ -5,9 +5,11 @@ type BoardProps = {
 
 type HoldId = string;
 
+type TwoHoldIdsList = [HoldId] | [HoldId, HoldId]
+
 type Boulder = {
-    [HoldTypes.TOP]: [HoldId] | [HoldId, HoldId],
-    [HoldTypes.START]: [HoldId] | [HoldId, HoldId],
+    [HoldTypes.TOP]: TwoHoldIdsList,
+    [HoldTypes.START]: TwoHoldIdsList,
     [HoldTypes.HAND]: Array<HoldId>,
 }
 
@@ -22,6 +24,17 @@ type PaintBoulderOnBoardArgs = {
     boulder: Boulder
 }
 
-export type { BoardProps, HoldId, Boulder, PaintBoulderOnBoardArgs };
-export { HoldTypes };
+type ActivateHoldArgs = {
+    holdId: string;
+    holdType: string;
+    boardRef: React.RefObject<HTMLDivElement | null>;
+}
+
+enum ToggleHoldActions {
+    ACTIVATE = 'add',
+    DEACTIVATE = 'remove'
+}
+
+export type { BoardProps, HoldId, Boulder, PaintBoulderOnBoardArgs, ActivateHoldArgs, TwoHoldIdsList };
+export { HoldTypes, ToggleHoldActions };
 
