@@ -1,22 +1,17 @@
-import getDuplicates from "@/app/utils/getDuplicates";
-import { Boulder, HoldId, HoldTypes } from "../types";
+import { Boulder, BoulderEntries, HoldId } from "../types";
 import { emptyDifference } from "../constants/initialisers";
 import deepEqual from "@/app/utils/deepEqual";
+import getTypeChanges from "./getTypeChanges";
 
 function getDifference(newBoulder: Boulder, currentBoulder: Boulder) {
   const difference = { ...emptyDifference };
-  const boulderEntries = Object.entries(newBoulder);
-
-  const holdTypes = Object.keys(newBoulder) as HoldTypes[];
-  const allHoldIds = holdTypes.map((holdType) => newBoulder[holdType]).flat();
-  const holdsTypeChanged = getDuplicates(allHoldIds);
+  const boulderEntries = Object.entries(newBoulder) as BoulderEntries;
+  const holdsTypeChanged = getTypeChanges(newBoulder);
 
   const isTypeChange = (hold: HoldId) =>
     holdsTypeChanged.length && holdsTypeChanged.includes(hold);
 
-  for (const [type, holdIds] of boulderEntries) {
-    const holdType = type as HoldTypes;
-    const newHolds = holdIds as HoldId[];
+  for (const [holdType, newHolds] of boulderEntries) {
     const activeHolds: HoldId[] = currentBoulder[holdType];
 
     if (deepEqual(activeHolds, newHolds)) continue;
@@ -24,7 +19,6 @@ function getDifference(newBoulder: Boulder, currentBoulder: Boulder) {
     const removed = activeHolds.filter(
       (hold) => !newHolds.includes(hold) && !isTypeChange(hold)
     );
-
     const added = newHolds.filter((newHold) => !activeHolds.includes(newHold));
 
     difference[holdType] = { added, removed };

@@ -5,6 +5,8 @@ import Board from "../components/Board/Board";
 import Button from "../components/Button/Button";
 import useNewBoulderStore from "./store/NewBoulderStore";
 import { HoldTypes } from "../components/Board/types";
+import isHoldActive from "./utils/isHoldActive";
+import { MAX_START_HOLDS, MAX_TOP_HOLDS } from "./constants";
 
 const CreationBoard = () => {
   const { setActiveType, setHold, removeHold, activeType, boulder } =
@@ -14,25 +16,25 @@ const CreationBoard = () => {
     const holdId = hold?.dataset?.holdId;
     let updatedActiveHoldType = null;
 
+    // TO DO - extract this logic
+
     if (!holdId) return;
 
-    const { isActive, holdType } = isHoldActive(holdId);
+    const { isActive, holdType } = isHoldActive({ holdId, boulder });
     if (isActive) {
       removeHold(holdId, holdType!);
       if (holdType === activeType) return;
     }
 
     if (HoldTypes.TOP === activeType) {
-      // TO DO - extract magic number
-      const isMaxHolds = boulder[activeType].length >= 2;
+      const isMaxHolds = boulder[activeType].length >= MAX_TOP_HOLDS;
       const firstInHold = boulder[activeType][0];
 
-      if (isMaxHolds) removeHold(firstInHold, activeType);
+      if (isMaxHolds && firstInHold) removeHold(firstInHold, activeType);
     }
 
     if (HoldTypes.START === activeType) {
-      // TO DO - extract magic number
-      const isMaxHolds = boulder[activeType].length >= 2;
+      const isMaxHolds = boulder[activeType].length >= MAX_START_HOLDS;
 
       if (isMaxHolds) {
         setActiveType(HoldTypes.HAND);
@@ -41,21 +43,6 @@ const CreationBoard = () => {
     }
 
     setHold(holdId, updatedActiveHoldType || activeType);
-  };
-
-  // TO DO - extract this function
-  const isHoldActive = (
-    holdId: string
-  ): { holdType: HoldTypes | null; isActive: boolean } => {
-    const boulderEntries = Object.entries(boulder);
-
-    for (const [holdType, holdIds] of boulderEntries) {
-      if (holdIds.includes(holdId)) {
-        return { holdType: holdType as HoldTypes, isActive: true };
-      }
-    }
-
-    return { holdType: null, isActive: false };
   };
 
   return (

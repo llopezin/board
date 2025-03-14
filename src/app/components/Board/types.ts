@@ -53,6 +53,8 @@ type Difference = {
   [HoldTypes.HAND]: HoldIdsDifference;
 };
 
+type BoulderEntries = [HoldTypes, HoldId[]][];
+
 export type {
   BoardProps,
   HoldId,
@@ -62,5 +64,6 @@ export type {
   TwoHoldIdsList,
   Difference,
   PaintDifferenceArgs,
+  BoulderEntries,
 };
 export { HoldTypes, ToggleHoldActions };
