@@ -1,24 +1,29 @@
 import holdStyles from "../styles";
-import { ActivateHoldArgs, HoldTypes, ToggleHoldActions } from "../types";
+import { ActivateHoldsArgs, HoldTypes, ToggleHoldActions } from "../types";
 import holdSelector from "./holdSeletor";
 
+function toggleHolds(
+  { holdIds, holdType, boardRef }: ActivateHoldsArgs,
+  action: ToggleHoldActions
+) {
+  const boardElement = boardRef.current;
+  if (!boardElement) return;
 
-function toggleHold({ holdId, holdType, boardRef }: ActivateHoldArgs, action: ToggleHoldActions) {
-    const boardElement = boardRef.current;
-    if (!boardElement) return;
+  const classes = holdStyles[holdType as HoldTypes];
+  const board = boardRef.current;
 
-    const classes = holdStyles[holdType as HoldTypes];
-    const board = boardRef.current;
+  holdIds.forEach((holdId) => {
     const holdElement = board?.querySelector(holdSelector(holdId));
     holdElement?.classList[action](...classes);
+  });
 }
 
-function activateHold(args: ActivateHoldArgs) {
-    toggleHold(args, ToggleHoldActions.ACTIVATE);
+function activateHolds(args: ActivateHoldsArgs) {
+  toggleHolds(args, ToggleHoldActions.ACTIVATE);
 }
 
-function deactivateHold(args: ActivateHoldArgs) {
-    toggleHold(args, ToggleHoldActions.DEACTIVATE);
+function deactivateHolds(args: ActivateHoldsArgs) {
+  toggleHolds(args, ToggleHoldActions.DEACTIVATE);
 }
 
-export { activateHold, deactivateHold };
+export { activateHolds, deactivateHolds };
