@@ -17,15 +17,15 @@ const CreationBoard = () => {
     let updatedActiveHoldType = null;
 
     // TO DO - extract this logic
-
     if (!holdId) return;
 
     const { isActive, holdType } = isHoldActive({ holdId, boulder });
+
     if (isActive) {
-      removeHold(holdId, holdType!);
-      if (holdType === activeType) return;
+      return removeHold(holdId, holdType!);
     }
 
+    // TO DO - move to a switch
     if (HoldTypes.TOP === activeType) {
       const isMaxHolds = boulder[activeType].length >= MAX_TOP_HOLDS;
       const firstInHold = boulder[activeType][0];

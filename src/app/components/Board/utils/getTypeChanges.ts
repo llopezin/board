@@ -1,9 +1,15 @@
 import getDuplicates from "@/app/utils/getDuplicates";
-import { Boulder, HoldTypes } from "../types";
+import { Difference, HoldTypes } from "../types";
 
-function getTypeChanges(boulder: Boulder) {
-  const holdTypes = Object.keys(boulder) as HoldTypes[];
-  const allHoldIds = holdTypes.map((holdType) => boulder[holdType]).flat();
+function getTypeChanges(difference: Difference) {
+  const holdTypes = Object.keys(difference) as HoldTypes[];
+  const allHoldIds = holdTypes
+    .map((holdType) => {
+      const { added, removed } = difference[holdType];
+      return added.concat(removed);
+    })
+    .flat();
+
   return getDuplicates(allHoldIds);
 }
 

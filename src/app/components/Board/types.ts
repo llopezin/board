@@ -65,5 +65,6 @@ export type {
   Difference,
   PaintDifferenceArgs,
   BoulderEntries,
+  HoldIdsDifference,
 };
 export { HoldTypes, ToggleHoldActions };
