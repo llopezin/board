@@ -5,7 +5,7 @@ import Board from "../components/Board/Board";
 import Button from "../components/Button/Button";
 import useNewBoulderStore from "./store/NewBoulderStore";
 import { HoldTypes } from "../components/Board/types";
-import isHoldActive from "./utils/isHoldActive";
+import isHoldActive from "./hooks/isHoldActive";
 import { MAX_START_HOLDS, MAX_TOP_HOLDS } from "./constants";
 import FullWidthButtonCluster from "../components/FullWidthButtonCluster/FullWidthButtonCluster";
 
@@ -21,7 +21,7 @@ const CreationBoard = () => {
   const onBoardClick = (event: React.MouseEvent<SVGElement>) => {
     const hold = event.target as SVGPathElement;
     const holdId = hold?.dataset?.holdId;
-    let updatedActiveHoldType = null;
+    const updatedActiveHoldType: HoldTypes[] | [] = [];
 
     // TO DO - extract this logic
     if (!holdId) return;
@@ -34,22 +34,14 @@ const CreationBoard = () => {
 
     // TO DO - move to a switch
     if (HoldTypes.TOP === activeType) {
-      const isMaxHolds = boulder[activeType].length >= MAX_TOP_HOLDS;
-      const firstInHold = boulder[activeType][0];
-
-      if (isMaxHolds && firstInHold) removeHold(firstInHold, activeType);
+      handleMoreThanTwoTop({ boulder, activeType });
     }
 
     if (HoldTypes.START === activeType) {
-      const isMaxHolds = boulder[activeType].length >= MAX_START_HOLDS;
-
-      if (isMaxHolds) {
-        setActiveType(HoldTypes.HAND);
-        updatedActiveHoldType = HoldTypes.HAND;
-      }
+      handleMoreThanTwoStarts({ boulder, activeType });
     }
 
-    setHold(holdId, updatedActiveHoldType || activeType);
+    setHold(holdId, updatedActiveHoldType[0] || activeType);
   };
 
   return (

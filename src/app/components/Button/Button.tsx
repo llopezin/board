@@ -5,7 +5,7 @@ import { twMerge } from "tailwind-merge";
 const baseClasses = "p-12 text-white bg-stone-800 hover:bg-stone-700";
 
 const variantsConfig = {
-  primary: "", // TO DO
+  primary: "rounded",
   fullWidth: "w-full",
   small: "p-2",
   medium: "p-8",
