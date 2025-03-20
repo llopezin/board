@@ -1,9 +1,11 @@
 import { HoldTypes } from "./types";
 
+const baseClasses = ["!fill-white/40", "stroke-[12px]"];
+
 const holdStyles: Record<HoldTypes, string[]> = {
-    [HoldTypes.HAND]: ['!fill-white/40', 'stroke-lime-400', 'stroke-[12px]'],
-    [HoldTypes.TOP]: ['!fill-white/40', 'stroke-purple-400', 'stroke-[12px]'],
-    [HoldTypes.START]: ['!fill-white/40', 'stroke-orange-400', 'stroke-[12px]']
+  [HoldTypes.HAND]: [`stroke-lime-400`, ...baseClasses],
+  [HoldTypes.TOP]: [`stroke-purple-400`, ...baseClasses],
+  [HoldTypes.START]: [`stroke-orange-400`, ...baseClasses],
 };
 
 export default holdStyles;
