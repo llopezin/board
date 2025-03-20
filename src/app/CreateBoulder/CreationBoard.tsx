@@ -55,7 +55,7 @@ const CreationBoard = () => {
   return (
     <>
       <Board onClick={onBoardClick} boulder={boulder} />
-      <FullWidthButtonCluster>
+      <FullWidthButtonCluster className="sticky bottom-0">
         <Button
           className={buttonClasses[HoldTypes.START]}
           selected={activeType === HoldTypes.START}
