@@ -5,9 +5,8 @@ import Board from "../components/Board/Board";
 import Button from "../components/Button/Button";
 import useNewBoulderStore from "./store/NewBoulderStore";
 import { HoldTypes } from "../components/Board/types";
-import isHoldActive from "./hooks/isHoldActive";
-import { MAX_START_HOLDS, MAX_TOP_HOLDS } from "./constants";
 import FullWidthButtonCluster from "../components/FullWidthButtonCluster/FullWidthButtonCluster";
+import UseCreationBoard from "./hooks/useCreationBoard";
 
 const buttonClasses = {
   [HoldTypes.START]: `[&>span]:after:shadow-orange-400 [&>span]:after:bg-orange-400`,
@@ -16,33 +15,8 @@ const buttonClasses = {
 };
 
 const CreationBoard = () => {
-  const { setActiveType, setHold, removeHold, activeType, boulder } =
-    useNewBoulderStore();
-  const onBoardClick = (event: React.MouseEvent<SVGElement>) => {
-    const hold = event.target as SVGPathElement;
-    const holdId = hold?.dataset?.holdId;
-    const updatedActiveHoldType: HoldTypes[] | [] = [];
-
-    // TO DO - extract this logic
-    if (!holdId) return;
-
-    const { isActive, holdType } = isHoldActive({ holdId, boulder });
-
-    if (isActive) {
-      return removeHold(holdId, holdType!);
-    }
-
-    // TO DO - move to a switch
-    if (HoldTypes.TOP === activeType) {
-      handleMoreThanTwoTop({ boulder, activeType });
-    }
-
-    if (HoldTypes.START === activeType) {
-      handleMoreThanTwoStarts({ boulder, activeType });
-    }
-
-    setHold(holdId, updatedActiveHoldType[0] || activeType);
-  };
+  const { setActiveType, activeType, boulder } = useNewBoulderStore();
+  const { onBoardClick } = UseCreationBoard();
 
   return (
     <>

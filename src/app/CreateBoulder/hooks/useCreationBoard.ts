@@ -1,25 +1,29 @@
-import { Boulder, HoldTypes } from "@/app/components/Board/types";
+import { BoulderEntries, HoldTypes } from "@/app/components/Board/types";
 import { MAX_START_HOLDS, MAX_TOP_HOLDS } from "../constants";
 import useNewBoulderStore from "../store/NewBoulderStore";
+import { IsHoldActiveProps } from "../types";
 
-type HandleMoreThanTwoTopsArgs = {
-  boulder: Boulder;
-  activeType: HoldTypes;
-};
-
-type HandleMoreThanTwoStartsArgs = HandleMoreThanTwoTopsArgs & {
-  boulder: Boulder;
-  activeType: HoldTypes;
+type HandleMoreThanTwoStartsArgs = {
   updatedActiveHoldType: HoldTypes[];
 };
 
 export default function UseCreationBoard() {
-  const { setActiveType, removeHold } = useNewBoulderStore();
+  const { setActiveType, removeHold, activeType, setHold, boulder } =
+    useNewBoulderStore();
 
-  function handleMoreThanTwoTops({
-    boulder,
-    activeType,
-  }: HandleMoreThanTwoTopsArgs) {
+  function isHoldActive({ holdId, boulder }: IsHoldActiveProps) {
+    const boulderEntries = Object.entries(boulder) as BoulderEntries;
+
+    for (const [holdType, holdIds] of boulderEntries) {
+      if (holdIds.includes(holdId)) {
+        return { holdType: holdType as HoldTypes, isActive: true };
+      }
+    }
+
+    return { holdType: null, isActive: false };
+  }
+
+  function handleMoreThanTwoTops() {
     const isMaxHolds = boulder[activeType].length >= MAX_TOP_HOLDS;
     const firstInHold = boulder[activeType][0];
 
@@ -27,8 +31,6 @@ export default function UseCreationBoard() {
   }
 
   function handleMoreThanTwoStarts({
-    boulder,
-    activeType,
     updatedActiveHoldType,
   }: HandleMoreThanTwoStartsArgs) {
     const isMaxHolds = boulder[activeType].length >= MAX_START_HOLDS;
@@ -39,8 +41,25 @@ export default function UseCreationBoard() {
     }
   }
 
+  function onBoardClick(event: React.MouseEvent<SVGElement>) {
+    const hold = event.target as SVGPathElement;
+    const holdId = hold?.dataset?.holdId;
+
+    if (!holdId) return;
+
+    const { isActive, holdType } = isHoldActive({ holdId, boulder });
+    const updatedActiveHoldType: HoldTypes[] = [];
+
+    if (isActive) return removeHold(holdId, holdType!);
+    if (HoldTypes.TOP === activeType) handleMoreThanTwoTops();
+    if (HoldTypes.START === activeType) {
+      handleMoreThanTwoStarts({ updatedActiveHoldType });
+    }
+
+    setHold(holdId, updatedActiveHoldType[0] || activeType);
+  }
+
   return {
-    handleMoreThanTwoStarts,
-    handleMoreThanTwoTops,
+    onBoardClick,
   };
 }
