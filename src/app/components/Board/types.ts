@@ -1,25 +1,18 @@
+type HoldId = string;
+type TwoHoldIdsList = [] | [HoldId] | [HoldId, HoldId];
+type BoardRef = React.RefObject<HTMLDivElement | null>;
+type BoulderEntries = [HoldTypes, HoldId[]][];
+
 type BoardProps = {
   onClick: (event: React.MouseEvent<SVGElement>) => void;
   boulder?: Boulder;
 };
-
-type HoldId = string;
-
-type TwoHoldIdsList = [] | [HoldId] | [HoldId, HoldId];
 
 type Boulder = {
   [HoldTypes.TOP]: TwoHoldIdsList;
   [HoldTypes.START]: TwoHoldIdsList;
   [HoldTypes.HAND]: Array<HoldId>;
 };
-
-enum HoldTypes {
-  START = "start",
-  HAND = "hand",
-  TOP = "top",
-}
-
-type BoardRef = React.RefObject<HTMLDivElement | null>;
 
 type PaintDifferenceArgs = {
   difference: Difference;
@@ -37,11 +30,6 @@ type ActivateHoldsArgs = {
   boardRef: React.RefObject<HTMLDivElement | null>;
 };
 
-enum ToggleHoldActions {
-  ACTIVATE = "add",
-  DEACTIVATE = "remove",
-}
-
 type HoldIdsDifference = {
   added: Array<HoldId>;
   removed: Array<HoldId>;
@@ -53,7 +41,16 @@ type Difference = {
   [HoldTypes.HAND]: HoldIdsDifference;
 };
 
-type BoulderEntries = [HoldTypes, HoldId[]][];
+enum ToggleHoldActions {
+  ACTIVATE = "add",
+  DEACTIVATE = "remove",
+}
+
+enum HoldTypes {
+  START = "start",
+  HAND = "hand",
+  TOP = "top",
+}
 
 export type {
   BoardProps,
@@ -67,4 +64,5 @@ export type {
   BoulderEntries,
   HoldIdsDifference,
 };
+
 export { HoldTypes, ToggleHoldActions };
