@@ -17,7 +17,6 @@ const CreationBoard = () => {
   return (
     <>
       <Board onClick={onBoardClick} boulder={boulder} />
-
       <FullWidthButtonCluster className="sticky bottom-0">
         {holdTypeNames.map((type) => (
           <Button
