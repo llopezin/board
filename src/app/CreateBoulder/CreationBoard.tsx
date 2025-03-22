@@ -6,7 +6,7 @@ import Button from "../components/Button/Button";
 import useNewBoulderStore from "./store/NewBoulderStore";
 import { HoldTypes } from "../components/Board/types";
 import FullWidthButtonCluster from "../components/FullWidthButtonCluster/FullWidthButtonCluster";
-import UseCreationBoard from "./hooks/useCreationBoard";
+import UseCreationBoardActions from "./hooks/useCreationBoardActions";
 
 const buttonClasses = {
   [HoldTypes.START]: `[&>span]:after:shadow-orange-400 [&>span]:after:bg-orange-400`,
@@ -16,7 +16,7 @@ const buttonClasses = {
 
 const CreationBoard = () => {
   const { setActiveType, activeType, boulder } = useNewBoulderStore();
-  const { onBoardClick } = UseCreationBoard();
+  const { onBoardClick } = UseCreationBoardActions();
 
   return (
     <>

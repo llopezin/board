@@ -7,7 +7,7 @@ type HandleMoreThanTwoStartsArgs = {
   updatedActiveHoldType: HoldTypes[];
 };
 
-export default function UseCreationBoard() {
+export default function UseCreationBoardActions() {
   const { setActiveType, removeHold, activeType, setHold, boulder } =
     useNewBoulderStore();
 
