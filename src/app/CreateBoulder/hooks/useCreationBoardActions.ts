@@ -1,5 +1,5 @@
 import { BoulderEntries, HoldTypes } from "@/app/components/Board/types";
-import { MAX_START_HOLDS, MAX_TOP_HOLDS } from "../constants";
+import { MAX_START_HOLDS, MAX_TOP_HOLDS } from "../utils/constants";
 import useNewBoulderStore from "../store/NewBoulderStore";
 import { IsHoldActiveProps } from "../types";
 

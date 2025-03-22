@@ -15,8 +15,8 @@ type Boulder = {
 
 enum HoldTypes {
   START = "start",
-  TOP = "top",
   HAND = "hand",
+  TOP = "top",
 }
 
 type BoardRef = React.RefObject<HTMLDivElement | null>;

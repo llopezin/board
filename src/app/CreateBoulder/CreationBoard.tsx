@@ -7,42 +7,28 @@ import useNewBoulderStore from "./store/NewBoulderStore";
 import { HoldTypes } from "../components/Board/types";
 import FullWidthButtonCluster from "../components/FullWidthButtonCluster/FullWidthButtonCluster";
 import UseCreationBoardActions from "./hooks/useCreationBoardActions";
-
-const buttonClasses = {
-  [HoldTypes.START]: `[&>span]:after:shadow-orange-400 [&>span]:after:bg-orange-400`,
-  [HoldTypes.HAND]: `[&>span]:after:shadow-lime-400 [&>span]:after:bg-lime-400`,
-  [HoldTypes.TOP]: `[&>span]:after:shadow-purple-400 [&>span]:after:bg-purple-400`,
-};
+import holdTypeButtonClasses from "./utils/buttonClasses";
 
 const CreationBoard = () => {
   const { setActiveType, activeType, boulder } = useNewBoulderStore();
   const { onBoardClick } = UseCreationBoardActions();
+  const holdTypeNames = Object.values(HoldTypes);
 
   return (
     <>
       <Board onClick={onBoardClick} boulder={boulder} />
+
       <FullWidthButtonCluster className="sticky bottom-0">
-        <Button
-          className={buttonClasses[HoldTypes.START]}
-          selected={activeType === HoldTypes.START}
-          onClick={() => setActiveType(HoldTypes.START)}
-        >
-          Start
-        </Button>
-        <Button
-          className={buttonClasses[HoldTypes.HAND]}
-          selected={activeType === HoldTypes.HAND}
-          onClick={() => setActiveType(HoldTypes.HAND)}
-        >
-          Hand
-        </Button>
-        <Button
-          className={buttonClasses[HoldTypes.TOP]}
-          selected={activeType === HoldTypes.TOP}
-          onClick={() => setActiveType(HoldTypes.TOP)}
-        >
-          Top
-        </Button>
+        {holdTypeNames.map((type) => (
+          <Button
+            key={type}
+            className={holdTypeButtonClasses[type]}
+            selected={activeType === type}
+            onClick={() => setActiveType(type)}
+          >
+            {type}
+          </Button>
+        ))}
       </FullWidthButtonCluster>
     </>
   );
