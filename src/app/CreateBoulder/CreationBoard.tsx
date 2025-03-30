@@ -15,9 +15,9 @@ const CreationBoard = () => {
   const holdTypeNames = Object.values(HoldTypes);
 
   return (
-    <>
+    <div className="relative w-full overflow-y-scroll">
       <Board onClick={onBoardClick} boulder={boulder} />
-      <FullWidthButtonCluster className="sticky bottom-0">
+      <FullWidthButtonCluster className="sticky bottom-0 left-0 right-0">
         {holdTypeNames.map((type) => (
           <Button
             key={type}
@@ -29,7 +29,7 @@ const CreationBoard = () => {
           </Button>
         ))}
       </FullWidthButtonCluster>
-    </>
+    </div>
   );
 };
 
