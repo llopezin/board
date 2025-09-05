@@ -1,0 +1,4 @@
+const MAX_TOP_HOLDS = 2;
+const MAX_START_HOLDS = 2;
+
+export { MAX_TOP_HOLDS, MAX_START_HOLDS };
