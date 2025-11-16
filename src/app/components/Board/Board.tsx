@@ -42,7 +42,7 @@ function Board({ onClick, boulder }: BoardProps) {
   return (
     <>
       <div
-        className="h-[calc(100vh-120px)] w-max bg-presas bg-contain bg-no-repeat"
+        className="h-[calc(100dvh-120px)] w-max bg-presas bg-contain bg-no-repeat"
         ref={boardRef}
       >
         <BoardMap onClick={onClick} />

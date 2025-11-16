@@ -1,4 +1,4 @@
-import CreationBoard from "./CreateBoulder/CreationBoard";
+import CreationBoard from "./features/CreateBoulder/CreationBoard";
 
 export default function Home() {
   return (

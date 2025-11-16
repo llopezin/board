@@ -1,11 +1,11 @@
 "use client";
 
 import React from "react";
-import Board from "../components/Board/Board";
-import Button from "../components/Button/Button";
+import Board from "~/components/Board/Board";
+import Button from "~/components/Button/Button";
 import useNewBoulderStore from "./store/NewBoulderStore";
-import { HoldTypes } from "../components/Board/types";
-import FullWidthButtonCluster from "../components/FullWidthButtonCluster/FullWidthButtonCluster";
+import { HoldTypes } from "~/components/Board/types";
+import FullWidthButtonCluster from "~/components/FullWidthButtonCluster/FullWidthButtonCluster";
 import UseCreationBoardActions from "./hooks/useCreationBoardActions";
 import holdTypeButtonClasses from "./utils/buttonClasses";
 
