@@ -4,13 +4,13 @@ import BoardMapProps from "./types";
 const BoardMap = ({ onClick }: BoardMapProps) => {
   return (
     <svg
-      className="block !w-auto !h-[calc(100vh-120px)] [&>path]:fill-black/30"
+      className="block !w-auto !h-[calc(100dvh-120px)] [&>path]:fill-black/10"
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 2893 3368"
       onClick={onClick}
     >
       <mask id="myMask">
-        <rect x="0" y="0" width="2893" height="3368" fill="blue" />
+        <rect x="0" y="0" width="2893" height="3368" fill="green" />
 
         <path
           fill="black"
