@@ -26,9 +26,8 @@ function Board({ onClick, boulder }: BoardProps) {
     !deepEqual(boulder, currentBoulder)
   ) {
     const difference = getDifference(boulder, currentBoulder);
-    const diffEntries = Object.entries(difference);
 
-    for (const [holdType, differences] of diffEntries) {
+    for (const [holdType, differences] of Object.entries(difference)) {
       if (differences.removed.length)
         deactivateHolds({ holdIds: differences.removed, holdType, boardRef });
 
