@@ -17,5 +17,6 @@ jobs:
           node-version: 20
       - run: yarn install --frozen-lockfile
       - run: yarn test
+      - run: yarn playwright install
       - run: yarn test:browser
       - run: yarn build
