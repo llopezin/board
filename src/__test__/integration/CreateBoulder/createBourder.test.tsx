@@ -48,7 +48,7 @@ test("Create boulder: Third clicked hold is set as hand", async () => {
   }
 });
 
-test("Create boulder: If a third top hold is clicked, the first one is turned off", async () => {
+test("Create boulder: If a third top hold is clicked, first one is turned off", async () => {
   const { getByTestId, getByText } = await render(<CreationBoard />);
 
   await userEvent.click(getByText("top"));
