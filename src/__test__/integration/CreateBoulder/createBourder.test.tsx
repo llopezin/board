@@ -3,7 +3,7 @@ import { expect, test } from "vitest";
 import { render } from "vitest-browser-react";
 import { userEvent } from "vitest/browser";
 import "@/app/globals.css";
-import holdStyles from "@/app/components/Board/styles";
+import holdStyles from "@/components/Board/styles";
 
 test("Create boulder: First click sets hold as start", async () => {
   const { getByTestId } = await render(<CreationBoard />);

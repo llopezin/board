@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Montserrat } from "next/font/google";
 import "./globals.css";
 
-
 const monstserrat = Montserrat({
   subsets: ["latin"],
 });
@@ -23,6 +22,7 @@ export default function RootLayout({
         className={`${monstserrat.className} antialiased color-mutedSand bg-slategrey`}
       >
         {children}
+        <div id="modal-root"></div>
       </body>
     </html>
   );

@@ -1,0 +1,4 @@
+- Unify prop interfaces to types
+- Migrate to latest tailwind version
+- Create primary and secondary color variables
+- Centralize strings
