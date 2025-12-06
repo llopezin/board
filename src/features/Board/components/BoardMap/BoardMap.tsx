@@ -1,4 +1,3 @@
-import React from "react";
 import BoardMapProps from "./types";
 
 const BoardMap = ({ onClick }: BoardMapProps) => {

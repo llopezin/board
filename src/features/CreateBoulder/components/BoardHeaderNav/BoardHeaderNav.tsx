@@ -1,4 +1,3 @@
-import React from "react";
 import { BoardHeaderNavProps } from "./BoardHeaderNav.types";
 
 const BoardHeaderNav = ({ children }: BoardHeaderNavProps) => {

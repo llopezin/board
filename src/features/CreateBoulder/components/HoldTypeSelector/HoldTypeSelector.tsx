@@ -1,9 +1,9 @@
-import Button from "@/components/Button/Button";
+import Button from "@/components/common/Button/Button";
 import React from "react";
-import holdTypeButtonClasses from "../CreationBoard/utils/buttonClasses";
-import { HoldTypes } from "@/components/Board/types";
+import holdTypeButtonClasses from "../../utils/buttonClasses";
 import { HoldTypeSelectorProps } from "./HolTypeSelector.types";
-import { ButtonSizes } from "@/components/Button/types";
+import { ButtonSizes } from "@/components/common/Button/types";
+import { HoldTypes } from "@/features/Board/types";
 
 const HoldTypeSelector = ({
   activeType,

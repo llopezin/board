@@ -1,4 +1,4 @@
-import { HoldTypes } from "@/components/Board/types";
+import { HoldTypes } from "@/features/Board/types";
 
 const holdTypeButtonClasses = {
   [HoldTypes.START]: `[&>span]:after:shadow-orange-400 [&>span]:after:bg-orange-400`,

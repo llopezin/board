@@ -4,4 +4,5 @@ const getDuplicates = <T>(arr: T[]): T[] => {
   );
   return [...new Set(duplicates)];
 };
+
 export default getDuplicates;

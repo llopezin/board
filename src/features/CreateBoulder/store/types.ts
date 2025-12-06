@@ -1,4 +1,4 @@
-import { Boulder, HoldId, HoldTypes } from "@/components/Board/types";
+import { Boulder, HoldId, HoldTypes } from "@/features/Board/types";
 
 type NewBoulderStoreState = {
   boulder: Boulder;

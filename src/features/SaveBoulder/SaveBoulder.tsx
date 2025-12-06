@@ -1,14 +1,14 @@
 "use client";
 
-import Button from "@/components/Button/Button";
-import { ButtonSizes } from "@/components/Button/types";
-import FullScreenModal from "@/components/FullScreenModal/FullScreenModal";
-import { fullScreenModalIds } from "@/components/FullScreenModal/FullScreenModal.constants";
+import Button from "@/components/common/Button/Button";
+import { ButtonSizes } from "@/components/common/Button/types";
+import FullScreenModal from "@/components/common/FullScreenModal/FullScreenModal";
+import { fullScreenModalIds } from "@/components/common/FullScreenModal/FullScreenModal.constants";
 import React from "react";
-import SaveBoulderForm from "../SaveBoulderForm/SaveBoulderForm";
-import { useFullScreenModal } from "@/components/FullScreenModal/hooks/useFullScreenModal";
-import SaveIcon from "@/icons/save";
-import CloseIcon from "@/icons/close";
+import SaveBoulderForm from "./components/SaveBoulderForm/SaveBoulderForm";
+import { useFullScreenModal } from "@/components/common/FullScreenModal/hooks/useFullScreenModal";
+import SaveIcon from "@/components/icons/save";
+import CloseIcon from "@/components/icons/close";
 import { SaveBoulderProps } from "./SaveBoulder.types";
 
 const SaveBoulder = ({ saveFn }: SaveBoulderProps) => {
