@@ -1,10 +1,8 @@
 import React from "react";
 import { TextInputProps } from "./types";
-import { twMerge } from "tailwind-merge";
+import { cn } from "@/utils/cn";
 
-const baseClasses =
-  "px-3 py-2 border border-stone-300 rounded focus:outline-none focus:ring-2 focus:ring-vibrantOrange";
-
+const baseClasses = "px-3 py-2 rounded";
 const labelBaseClasses = "text-sm font-medium";
 
 const TextInput = ({
@@ -18,14 +16,11 @@ const TextInput = ({
   return (
     <>
       {label && (
-        <label
-          htmlFor={id}
-          className={twMerge(labelBaseClasses, labelClassName)}
-        >
+        <label htmlFor={id} className={cn(labelBaseClasses, labelClassName)}>
           {label}
         </label>
       )}
-      <input className={twMerge(baseClasses, className)} {...props} id={id} />
+      <input className={cn(baseClasses, className)} {...props} id={id} />
     </>
   );
 };

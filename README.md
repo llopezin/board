@@ -50,6 +50,10 @@ board/
 │ │ ├── AuthContext.tsx
 │ │ └── ThemeContext.tsx
 │ │
+│ ├── domain/ # Globaly shared bussiness logic entities
+│ │ └── constants
+│ │   └── boulderGrades.ts
+│ │
 │ ├── features/ 
 │ │ ├── auth/ 
 │ │ │ ├── components/ 

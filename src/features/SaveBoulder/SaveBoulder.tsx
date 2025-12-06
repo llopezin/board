@@ -17,8 +17,11 @@ const SaveBoulder = ({ saveFn }: SaveBoulderProps) => {
   const onSaveFormSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const formData = new FormData(e.currentTarget);
+    console.log("formData: ", [...formData.keys()]);
     const boulderName = formData.get("boulderName") as string;
+    console.log("boulderName: ", boulderName);
     const grade = formData.get("boulderGrade") as string;
+    console.log("grade: ", grade);
 
     saveFn(boulderName, grade);
     toggleModal();
