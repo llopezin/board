@@ -1,4 +1,9 @@
-- Unify prop interfaces to types
-- Migrate to latest tailwind version
-- Create primary and secondary color variables
-- Centralize text content strings
+- [x] Dropdown for grades
+- [ ] List
+- [ ] Reset button
+- [ ] Handle duplicate boulder names
+- [ ] Unify prop interfaces to types
+- [ ] Explain domain vocabulary on README.md (boulder, board, hold, hand, foot, top, start...)
+- [ ] Migrate to latest tailwind version
+- [ ] Create primary and secondary color variables
+- [ ] Centralize text content strings
