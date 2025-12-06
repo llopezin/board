@@ -1,9 +1,9 @@
 import { create } from "zustand";
 import { NewBoulderStore } from "./types";
-import { HoldId, HoldTypes } from "@/components/Board/types";
 import { devtools } from "zustand/middleware";
-import { emptyBoulder } from "@/components/Board/constants/initialisers";
 import { immer } from "zustand/middleware/immer";
+import { HoldId, HoldTypes } from "@/features/Board/types";
+import { emptyBoulder } from "@/features/Board/constants/initialisers";
 
 const initialState = {
   boulder: { ...emptyBoulder },

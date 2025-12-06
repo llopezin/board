@@ -1,4 +1,4 @@
-import CreationBoard from "@/app/features/CreateBoulder/CreationBoard";
+import CreateBoulder from "@/app/features/CreateBoulder/CreateBoulder";
 import { expect, test } from "vitest";
 import { render } from "vitest-browser-react";
 import { userEvent } from "vitest/browser";
@@ -6,7 +6,7 @@ import "@/app/globals.css";
 import holdStyles from "@/components/Board/styles";
 
 test("Create boulder: First click sets hold as start", async () => {
-  const { getByTestId } = await render(<CreationBoard />);
+  const { getByTestId } = await render(<CreateBoulder />);
 
   await expect.element(getByTestId("test-hold")).toBeInTheDocument();
   await userEvent.click(getByTestId("test-hold"));
@@ -17,7 +17,7 @@ test("Create boulder: First click sets hold as start", async () => {
 });
 
 test("Create boulder: Second click toggles hold off", async () => {
-  const { getByTestId } = await render(<CreationBoard />);
+  const { getByTestId } = await render(<CreateBoulder />);
 
   await userEvent.click(getByTestId("test-hold"));
 
@@ -27,7 +27,7 @@ test("Create boulder: Second click toggles hold off", async () => {
 });
 
 test("Create boulder: Two first clicked holds are set as start", async () => {
-  const { getByTestId } = await render(<CreationBoard />);
+  const { getByTestId } = await render(<CreateBoulder />);
 
   await userEvent.click(getByTestId("test-hold"));
   await userEvent.click(getByTestId("test-hold-1"));
@@ -39,7 +39,7 @@ test("Create boulder: Two first clicked holds are set as start", async () => {
 });
 
 test("Create boulder: Third clicked hold is set as hand", async () => {
-  const { getByTestId } = await render(<CreationBoard />);
+  const { getByTestId } = await render(<CreateBoulder />);
 
   await userEvent.click(getByTestId("test-hold-2"));
 
@@ -49,7 +49,7 @@ test("Create boulder: Third clicked hold is set as hand", async () => {
 });
 
 test("Create boulder: If a third top hold is clicked, first one is turned off", async () => {
-  const { getByTestId, getByText } = await render(<CreationBoard />);
+  const { getByTestId, getByText } = await render(<CreateBoulder />);
 
   await userEvent.click(getByText("top"));
   await userEvent.click(getByTestId("test-top"));

@@ -1,14 +1,13 @@
 "use client";
 
-import React from "react";
-import Board from "@/components/Board/Board";
-import UseCreationBoardActions from "./hooks/useCreationBoardActions";
-import BoardHeaderNavigation from "../../BoardHeaderNav/BoardHeaderNav";
-import useNewBoulderStore from "../store/NewBoulderStore";
-import HoldTypeSelector from "../HoldTypeSelector/HoldTypeSelector";
-import { NewBoulderStore } from "../store/types";
-import SaveBoulder from "../../SaveBoulder/SaveBoulder/SaveBoulder";
+import useNewBoulderStore from "./store/NewBoulderStore";
+import HoldTypeSelector from "./components/HoldTypeSelector/HoldTypeSelector";
+import { NewBoulderStore } from "./store/types";
+import SaveBoulder from "../SaveBoulder/SaveBoulder";
 import { useShallow } from "zustand/shallow";
+import UseCreateBoulderActions from "./hooks/useCreationBoardActions";
+import Board from "../Board/Board";
+import BoardHeaderNav from "./components/BoardHeaderNav/BoardHeaderNav";
 
 const creationBoardStateSelector = (state: NewBoulderStore) => ({
   setActiveType: state.setActiveType,
@@ -17,8 +16,8 @@ const creationBoardStateSelector = (state: NewBoulderStore) => ({
   boulder: state.boulder,
 });
 
-const CreationBoard = () => {
-  const { onBoardClick } = UseCreationBoardActions();
+const CreateBoulder = () => {
+  const { onBoardClick } = UseCreateBoulderActions();
   const memoizedSelector = useShallow(creationBoardStateSelector);
 
   const { setActiveType, saveToLocalStorage, activeType, boulder } =
@@ -26,9 +25,9 @@ const CreationBoard = () => {
 
   return (
     <div className="relative w-full overflow-y-scroll">
-      <BoardHeaderNavigation>
+      <BoardHeaderNav>
         <SaveBoulder saveFn={saveToLocalStorage} />
-      </BoardHeaderNavigation>
+      </BoardHeaderNav>
 
       <Board onClick={onBoardClick} boulder={boulder} />
       <HoldTypeSelector setActiveType={setActiveType} activeType={activeType} />
@@ -36,4 +35,4 @@ const CreationBoard = () => {
   );
 };
 
-export default CreationBoard;
+export default CreateBoulder;

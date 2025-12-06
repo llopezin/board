@@ -1,12 +1,12 @@
 "use client";
 
 import { useRef } from "react";
-import BoardMap from "../BoardMap/BoardMap";
 import { BoardProps, Boulder } from "./types";
 import paintBoulder from "./utils/paintBoulder";
 import { activateHolds, deactivateHolds } from "./utils/activateHold";
 import deepEqual from "@/utils/deepEqual";
 import getDifference from "./utils/getDifference";
+import BoardMap from "./components/BoardMap/BoardMap";
 
 function Board({ onClick, boulder }: BoardProps) {
   const boardRef = useRef<HTMLDivElement>(null);

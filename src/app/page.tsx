@@ -1,9 +1,9 @@
-import CreationBoard from "@/features/CreateBoulder/CreationBoard/CreationBoard";
+import CreateBoulder from "@/features/CreateBoulder/CreateBoulder";
 
 export default function Home() {
   return (
     <>
-      <CreationBoard />
+      <CreateBoulder />
     </>
   );
 }
