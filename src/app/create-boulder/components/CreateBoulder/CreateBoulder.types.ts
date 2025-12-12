@@ -1,4 +1,4 @@
-import { Boulder } from "@/components/common/Board/types";
+import { Boulder } from "@/features/Board/types";
 
 type IsHoldActiveProps = {
   holdId: string;

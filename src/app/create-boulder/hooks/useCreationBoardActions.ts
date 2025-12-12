@@ -2,7 +2,7 @@ import { MAX_START_HOLDS, MAX_TOP_HOLDS } from "../utils/constants";
 import useNewBoulderStore from "../store/NewBoulderStore";
 import { HandleMoreThanTwoStartsArgs } from "./types";
 import { BoulderEntries, HoldTypes } from "@/features/Board/types";
-import { IsHoldActiveProps } from "../CreateBoulder.types";
+import { IsHoldActiveProps } from "../components/CreateBoulder/CreateBoulder.types";
 
 export default function UseCreateBoulderActions() {
   const { setActiveType, removeHold, activeType, setHold, boulder } =

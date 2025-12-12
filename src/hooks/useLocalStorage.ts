@@ -30,7 +30,7 @@ import { useState, useEffect } from "react";
  * }
  */
 
-export function useLocalStorage<T extends string | number | boolean | null>(
+export function useLocalStorage<T>(
   key: string,
   initialValue: T
 ): [T, (value: T) => void, () => void] {

@@ -1,9 +1,9 @@
-import CreateBoulder from "@/app/features/CreateBoulder/CreateBoulder";
 import { expect, test } from "vitest";
 import { render } from "vitest-browser-react";
 import { userEvent } from "vitest/browser";
-import "@/app/globals.css";
-import holdStyles from "@/components/Board/styles";
+import "@/app/styles/globals.css";
+import CreateBoulder from "@/app/create-boulder/components/CreateBoulder/CreateBoulder";
+import holdStyles from "@/features/Board/styles";
 
 test("Create boulder: First click sets hold as start", async () => {
   const { getByTestId } = await render(<CreateBoulder />);
