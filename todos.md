@@ -1,7 +1,14 @@
 - [x] Dropdown for grades
-- [ ] List
+- [x] List
+- [x] Visualization board
 - [ ] Reset button
+- [ ] Go back button on boulder list
+- [ ] Decide on landing (when no boulders available?)
+- [ ] Edition board
+- [ ] Reset button
+- [ ] Boulder not found page
 - [ ] Handle duplicate boulder names
+- [ ] Update metadate to proper name and description
 - [ ] Unify prop interfaces to types
 - [ ] Explain domain vocabulary on README.md (boulder, board, hold, hand, foot, top, start...)
 - [ ] Migrate to latest tailwind version

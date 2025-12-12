@@ -4,6 +4,7 @@ import { devtools } from "zustand/middleware";
 import { immer } from "zustand/middleware/immer";
 import { HoldId, HoldTypes } from "@/features/Board/types";
 import { emptyBoulder } from "@/features/Board/constants/initialisers";
+import { BoulderListItemDto } from "@/domain/dtos/BoulderListItem.dto";
 
 const initialState = {
   boulder: { ...emptyBoulder },
@@ -37,10 +38,13 @@ const useNewBoulderStore = create<
             boulder: state.boulder,
             name: boulderName,
             grade,
+            id: Date.now().toString(),
           };
 
           const listString = localStorage.getItem("boulderList");
-          const list = listString ? JSON.parse(listString) : [];
+          const list: BoulderListItemDto[] = listString
+            ? JSON.parse(listString)
+            : [];
 
           list.push(boulderWithGradeAndName);
 

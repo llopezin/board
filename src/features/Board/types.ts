@@ -4,7 +4,7 @@ type BoardRef = React.RefObject<HTMLDivElement | null>;
 type BoulderEntries = [HoldTypes, HoldId[]][];
 
 type BoardProps = {
-  onClick: (event: React.MouseEvent<SVGElement>) => void;
+  onClick?: (event: React.MouseEvent<SVGElement>) => void;
   boulder?: Boulder;
 };
 

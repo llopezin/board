@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import { BoardProps, Boulder } from "./types";
 import paintBoulder from "./utils/paintBoulder";
 import { activateHolds, deactivateHolds } from "./utils/activateHold";
@@ -12,20 +12,12 @@ function Board({ onClick, boulder }: BoardProps) {
   const boardRef = useRef<HTMLDivElement>(null);
   const boulderRef = useRef<Boulder | null>(null);
   const board = boardRef?.current;
-  const currentBoulder = boulderRef?.current;
+  const previousBoulder = boulderRef?.current;
+  const boulderHasChanged =
+    board && boulder && previousBoulder && !deepEqual(boulder, previousBoulder);
 
-  if (boulder && board && !currentBoulder) {
-    paintBoulder({ boardRef, boulder });
-    boulderRef.current = boulder;
-  }
-
-  if (
-    board &&
-    boulder &&
-    currentBoulder &&
-    !deepEqual(boulder, currentBoulder)
-  ) {
-    const difference = getDifference(boulder, currentBoulder);
+  if (boulderHasChanged) {
+    const difference = getDifference(boulder, previousBoulder);
 
     for (const [holdType, differences] of Object.entries(difference)) {
       if (differences.removed.length)
@@ -37,6 +29,16 @@ function Board({ onClick, boulder }: BoardProps) {
 
     boulderRef.current = boulder;
   }
+
+  useEffect(() => {
+    const noBoulderPaintedYet = boulder && boardRef.current && !previousBoulder;
+
+    if (noBoulderPaintedYet) {
+      console.log("noBoulderPaintedYet: ", noBoulderPaintedYet);
+      paintBoulder({ boardRef, boulder });
+      boulderRef.current = boulder;
+    }
+  }, []);
 
   return (
     <>

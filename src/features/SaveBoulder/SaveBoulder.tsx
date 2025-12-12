@@ -1,7 +1,5 @@
 "use client";
 
-import Button from "@/components/common/Button/Button";
-import { ButtonSizes } from "@/components/common/Button/types";
 import FullScreenModal from "@/components/common/FullScreenModal/FullScreenModal";
 import { fullScreenModalIds } from "@/components/common/FullScreenModal/FullScreenModal.constants";
 import React from "react";
@@ -17,11 +15,8 @@ const SaveBoulder = ({ saveFn }: SaveBoulderProps) => {
   const onSaveFormSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const formData = new FormData(e.currentTarget);
-    console.log("formData: ", [...formData.keys()]);
     const boulderName = formData.get("boulderName") as string;
-    console.log("boulderName: ", boulderName);
     const grade = formData.get("boulderGrade") as string;
-    console.log("grade: ", grade);
 
     saveFn(boulderName, grade);
     toggleModal();
@@ -29,17 +24,17 @@ const SaveBoulder = ({ saveFn }: SaveBoulderProps) => {
 
   return (
     <>
-      <Button size={ButtonSizes.SMALL} onClick={toggleModal}>
+      <button onClick={toggleModal}>
         <span className="sr-only">Save Boulder</span>
         <SaveIcon className="w-5 h-5 fill-white" />
-      </Button>
+      </button>
 
       <FullScreenModal
         className="flex items-center justify-center bg-stone-800"
         instanceId={fullScreenModalIds.saveModal}
         ariaLabel="save boulder"
       >
-        <button className="absolute right-0 top-0 p-2" onClick={toggleModal}>
+        <button className="absolute right-0 top-0" onClick={toggleModal}>
           <CloseIcon className="w-5 h-5 [&>path]:fill-white" />
         </button>
         <SaveBoulderForm onSubmit={onSaveFormSubmit} />
