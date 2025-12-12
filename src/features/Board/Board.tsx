@@ -34,7 +34,6 @@ function Board({ onClick, boulder }: BoardProps) {
     const noBoulderPaintedYet = boulder && boardRef.current && !previousBoulder;
 
     if (noBoulderPaintedYet) {
-      console.log("noBoulderPaintedYet: ", noBoulderPaintedYet);
       paintBoulder({ boardRef, boulder });
       boulderRef.current = boulder;
     }

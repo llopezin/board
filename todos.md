@@ -1,6 +1,7 @@
 - [x] Dropdown for grades
 - [x] List
 - [x] Visualization board
+- [ ] Update react version
 - [ ] Reset button
 - [ ] Go back button on boulder list
 - [ ] Decide on landing (when no boulders available?)
