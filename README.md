@@ -30,6 +30,8 @@ board/
 │ ├── app/
 │ │ ├── (auth) # Route group
 │ │ │ ├── login/
+│ │ │ │ ├── components # Route specific components using top lvl data/contexts
+│ │ │ │ │  └── loginForm 
 │ │ │ │ ├── page.tsx
 │ │ │ │ └──layout.tsx
 │ │ │ └── signin/
@@ -54,7 +56,7 @@ board/
 │ │ └── constants
 │ │   └── boulderGrades.ts
 │ │
-│ ├── features/ 
+│ ├── features/ # Non route specific features
 │ │ ├── auth/ 
 │ │ │ ├── components/ 
 │ │ │ ├── hooks/ 

@@ -14,4 +14,8 @@ export default defineConfig({
       instances: [{ browser: "chromium" }],
     },
   },
+  define: {
+    "process.env": {},
+  },
+
 });

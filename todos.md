@@ -1,7 +1,20 @@
 - [x] Dropdown for grades
-- [ ] List
+- [x] List
+- [x] Visualization board
+- [x] Add test for board creation
+- [x] Add test for board save
+- [ ] Add test for board retrieval and visualization
+- [ ] Move boulder type to domain
+- [ ] Update react version
 - [ ] Reset button
+- [ ] Go back button on boulder list
+- [ ] Deploy
+- [ ] Decide on landing (when no boulders available?)
+- [ ] Edition board
+- [ ] Reset button
+- [ ] Boulder not found page
 - [ ] Handle duplicate boulder names
+- [ ] Update metadata to proper name and description
 - [ ] Unify prop interfaces to types
 - [ ] Explain domain vocabulary on README.md (boulder, board, hold, hand, foot, top, start...)
 - [ ] Migrate to latest tailwind version

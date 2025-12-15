@@ -1,4 +1,4 @@
-import { HoldTypes } from "@/components/Board/types";
+import { HoldTypes } from "@/features/Board/types";
 
 export interface HoldTypeSelectorProps {
   activeType: HoldTypes;

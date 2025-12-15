@@ -19,7 +19,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${monstserrat.className} antialiased color-mutedSand bg-slategrey`}
+        className={`${monstserrat.className} antialiased color-mutedSand bg-stone-800`}
       >
         {children}
         <div id="modal-root"></div>

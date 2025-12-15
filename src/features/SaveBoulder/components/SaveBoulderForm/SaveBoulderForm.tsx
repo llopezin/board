@@ -1,8 +1,8 @@
-import TextInput from "@/components/common/TextInput/TextInput";
+import TextInput from "@/components/ui/TextInput/TextInput";
 import React from "react";
 import { SaveBoulderFormProps } from "./SaveBoulderForm.types";
 import { boulderGrades } from "@/domain/contants/boulderGrades";
-import Select, { Option } from "@/components/common/Select";
+import Select from "@/components/ui/Select";
 
 const SaveBoulderForm = ({ onSubmit }: SaveBoulderFormProps) => {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -32,18 +32,18 @@ const SaveBoulderForm = ({ onSubmit }: SaveBoulderFormProps) => {
           name="boulderGrade"
         >
           {boulderGrades.map((grade, i) => (
-            <Option
+            <Select.Option
               className="active:bg-orange-200"
               key={grade}
               value={grade}
               defaultChecked={i === 0}
             >
               {grade}
-            </Option>
+            </Select.Option>
           ))}
         </Select>
       </div>
-      <button className="bg-purple-400 p-2 rounded" type="submit">
+      <button data-testid="test-save-boulder" className="bg-purple-400 p-2 rounded" type="submit">
         Save Boulder
       </button>
     </form>

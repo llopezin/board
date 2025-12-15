@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/no-require-imports */
 import type { Config } from "tailwindcss";
+import colors from "tailwindcss/colors";
 
 export default {
   darkMode: ["class"],
@@ -17,6 +18,7 @@ export default {
       plugins: [require("tailwindcss-animate")],
       colors: {
         deepTeal: "#0E4F60",
+        "primary-color": colors.stone[800],
         vibrantOrange: "#FF6B35",
         mutedSand: "#EAD7C0",
         slateGray: "#4B5563",
