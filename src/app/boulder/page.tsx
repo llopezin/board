@@ -1,17 +1,16 @@
-"use client";
-
-import { useSearchParams } from "next/navigation";
+import { redirect } from "next/navigation";
 import Boulder from "./components/Boulder/Boulder";
-import { useRouter } from "next/navigation";
 
-/* This page will be server side rendered when database storage is implemented */
 
-export default function BoulderPage() {
-  const searchParams = useSearchParams();
-  const id = searchParams.get("id");
-  const router = useRouter();
+export default async function BoulderPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ [key: string]: string | undefined }>
+}) {
+  const params = await searchParams;
+  const id = params.id;
 
-  if (!id) router.push("/");
+  if (!id) redirect("/");
 
-  return <Boulder id={id!} />;
+  return <Boulder id={id} />;
 }
