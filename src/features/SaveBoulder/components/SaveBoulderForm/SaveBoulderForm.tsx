@@ -43,7 +43,7 @@ const SaveBoulderForm = ({ onSubmit }: SaveBoulderFormProps) => {
           ))}
         </Select>
       </div>
-      <button className="bg-purple-400 p-2 rounded" type="submit">
+      <button data-testid="test-save-boulder" className="bg-purple-400 p-2 rounded" type="submit">
         Save Boulder
       </button>
     </form>
