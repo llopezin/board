@@ -3,20 +3,21 @@
 - [x] Visualization board
 - [x] Add test for board creation
 - [x] Add test for board save
-- [ ] Add test for board retrieval and visualization
-- [ ] Move boulder type to domain
-- [ ] Update react version
-- [ ] Reset button
-- [ ] Go back button on boulder list
-- [ ] Deploy
 - [ ] Decide on landing (when no boulders available?)
-- [ ] Edition board
+- [ ] Design and implement navigation flows (Go back button on boulder list)
 - [ ] Reset button
-- [ ] Boulder not found page
 - [ ] Handle duplicate boulder names
+- [ ] Remove boulder from list button
+- [ ] Deploy
+- [ ] Edition board
+- [ ] Boulder not found page
+
+- [ ] Update react version
+- [ ] Move boulder type to domain
 - [ ] Update metadata to proper name and description
 - [ ] Unify prop interfaces to types
 - [ ] Explain domain vocabulary on README.md (boulder, board, hold, hand, foot, top, start...)
 - [ ] Migrate to latest tailwind version
 - [ ] Create primary and secondary color variables
+- [ ] Add test for board retrieval and visualization
 - [ ] Centralize text content strings

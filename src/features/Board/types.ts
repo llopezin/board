@@ -12,6 +12,7 @@ type Boulder = {
   [HoldTypes.TOP]: TwoHoldIdsList;
   [HoldTypes.START]: TwoHoldIdsList;
   [HoldTypes.HAND]: Array<HoldId>;
+  [HoldTypes.FOOT]: Array<HoldId>;
 };
 
 type PaintDifferenceArgs = {
@@ -39,6 +40,7 @@ type Difference = {
   [HoldTypes.TOP]: HoldIdsDifference;
   [HoldTypes.START]: HoldIdsDifference;
   [HoldTypes.HAND]: HoldIdsDifference;
+  [HoldTypes.FOOT]: HoldIdsDifference;
 };
 
 enum ToggleHoldActions {
@@ -50,6 +52,7 @@ enum HoldTypes {
   START = "start",
   HAND = "hand",
   TOP = "top",
+  FOOT = "foot",
 }
 
 export type {
