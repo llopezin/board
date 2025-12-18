@@ -21,6 +21,7 @@ test("Create boulder: Second click toggles hold off", async () => {
 
   await userEvent.click(getByTestId("test-hold"));
 
+
   for (const className of holdStyles.start) {
     await expect.element(getByTestId("test-hold")).not.toHaveClass(className);
   }

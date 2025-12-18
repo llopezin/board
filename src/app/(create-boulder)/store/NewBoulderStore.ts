@@ -2,7 +2,7 @@ import { create } from "zustand";
 import { NewBoulderStore } from "./types";
 import { devtools } from "zustand/middleware";
 import { immer } from "zustand/middleware/immer";
-import { HoldId, HoldTypes } from "@/features/Board/types";
+import { Boulder, HoldId, HoldTypes } from "@/features/Board/types";
 import { emptyBoulder } from "@/features/Board/constants/initialisers";
 import { BoulderListItemDto } from "@/domain/dtos/BoulderListItem.dto";
 
@@ -30,7 +30,9 @@ const useNewBoulderStore = create<
         }),
       setActiveType: (type) => set({ activeType: type }),
       saveToLocalStorage: (boulderName: string, grade: string) => {
-        set((state) => {
+        let success;
+
+         set((state) => {
           // TO DO - handle type safety
           // TO DO - handle name conflicts
           // TO DO - extract key boulderList
@@ -48,8 +50,18 @@ const useNewBoulderStore = create<
 
           list.push(boulderWithGradeAndName);
 
-          localStorage.setItem("boulderList", JSON.stringify(list));
+          try {
+            localStorage.setItem("boulderList", JSON.stringify(list));
+            success = true;
+          } catch (error) {
+            success = false;
+          }
+
+          state.boulder = initialState.boulder as unknown as Boulder;
+          state.activeType = HoldTypes.START;
         });
+
+        return success ? { success: true } : { success: false, error: "Failed to save boulder to localStorage" };
       },
     }))
   )

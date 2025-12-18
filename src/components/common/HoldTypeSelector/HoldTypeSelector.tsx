@@ -1,6 +1,6 @@
 import Button from "@/components/ui/Button/Button";
 import React from "react";
-import holdTypeButtonClasses from "../../../app/create-boulder/utils/buttonClasses";
+import holdTypeButtonClasses from "../../../app/(create-boulder)/utils/buttonClasses";
 import { HoldTypeSelectorProps } from "./HolTypeSelector.types";
 import { ButtonSizes } from "@/components/ui/Button/types";
 import { HoldTypes } from "@/features/Board/types";

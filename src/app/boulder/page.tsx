@@ -1,5 +1,6 @@
 import { redirect } from "next/navigation";
 import Boulder from "./components/Boulder/Boulder";
+import { routes } from "@/domain/contants/routes";
 
 
 export default async function BoulderPage({
@@ -10,7 +11,7 @@ export default async function BoulderPage({
   const params = await searchParams;
   const id = params.id;
 
-  if (!id) redirect("/");
+  if (!id) redirect(routes.home);
 
   return <Boulder id={id} />;
 }

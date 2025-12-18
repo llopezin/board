@@ -7,6 +7,7 @@ import { BoulderListItemDto } from "@/domain/dtos/BoulderListItem.dto";
 import BoardHeaderNav from "@/components/common/BoardHeaderNav/BoardHeaderNav";
 import Link from "next/link";
 import YScrollContainer from "@/components/common/YScrollContainer/YScrollContainer";
+import { routes } from "@/domain/contants/routes";
 
 const Boulder = ({ id }: BoulderProps) => {
   const [boulderList] = useLocalStorage<BoulderListItemDto[]>(
@@ -18,7 +19,7 @@ const Boulder = ({ id }: BoulderProps) => {
   return (
     <div>
       <BoardHeaderNav>
-        <Link className="text-white" href="/">
+        <Link className="text-white" href={routes.boulderList}>
           My boulders
         </Link>
       </BoardHeaderNav>
