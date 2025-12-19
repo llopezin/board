@@ -29,6 +29,11 @@ const useNewBoulderStore = create<
           );
         }),
       setActiveType: (type) => set({ activeType: type }),
+      clearBoulder: () => set((state)=> {
+        state.boulder = initialState.boulder as unknown as Boulder;
+        state.activeType = HoldTypes.START;
+      }),
+      
       saveToLocalStorage: (boulderName: string, grade: string) => {
         let success;
 

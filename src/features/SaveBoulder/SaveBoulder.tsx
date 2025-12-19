@@ -26,10 +26,13 @@ const SaveBoulder = ({ saveFn }: SaveBoulderProps) => {
 
   return (
     <>
-      <button onClick={toggleModal}>
-        <span className="sr-only">Save Boulder</span>
-        <SaveIcon className="w-5 h-5 fill-white" />
-      </button>
+      <div className="flex flex-col items-center">
+        <button className="p-2" onClick={toggleModal}>
+          <span className="sr-only">Save Boulder</span>
+          <SaveIcon className="w-5 h-5 fill-white" />
+        </button>
+        <span className="text-xs text-white">save</span>
+      </div>
 
       <FullScreenModal
         className="flex items-center justify-center bg-stone-800"

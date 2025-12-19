@@ -51,8 +51,8 @@ enum ToggleHoldActions {
 enum HoldTypes {
   START = "start",
   HAND = "hand",
-  TOP = "top",
   FOOT = "foot",
+  TOP = "top",
 }
 
 export type {

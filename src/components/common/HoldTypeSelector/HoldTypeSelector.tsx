@@ -1,9 +1,14 @@
-import Button from "@/components/ui/Button/Button";
-import React from "react";
-import holdTypeButtonClasses from "../../../app/(create-boulder)/utils/buttonClasses";
-import { HoldTypeSelectorProps } from "./HolTypeSelector.types";
-import { ButtonSizes } from "@/components/ui/Button/types";
+import holdTypeButtonClasses from "./HoldTypesSelector.constants";
+import { HoldTypeSelectorProps } from "./HoldTypeSelector.types";
 import { HoldTypes } from "@/features/Board/types";
+import { Foot } from "@/components/icons/foot";
+import { Hand } from "@/components/icons/hand";
+import { Top } from "@/components/icons/top";
+import { Start } from "@/components/icons/start";
+import { cn } from "@/utils/cn";
+
+const baseClasses = "w-10 p-[10px] aspect-square max-h-10  [&>svg]:w-full [&>svg]:h-full [&>svg]:fill-white [&_path]:fill-white rounded-full shrink-0"
+const activeClasses = "bg-white [&>svg]:fill-black [&_path]:fill-black"
 
 const HoldTypeSelector = ({
   activeType,
@@ -11,20 +16,32 @@ const HoldTypeSelector = ({
 }: HoldTypeSelectorProps) => {
   const holdTypeNames = Object.values(HoldTypes);
 
+  const holdTypeIcons = {
+    [HoldTypes.FOOT]: <Foot />,
+    [HoldTypes.HAND]: <Hand />,
+    [HoldTypes.TOP]: <Top />,
+    [HoldTypes.START]: <Start />,
+  };
+
   return (
-    <div className="w-full flex [&>button]:grow sticky bottom-0 left-0 right-0">
+    <div className="flex gap-2">
       {holdTypeNames.map((type) => (
-        <Button
-          key={type}
-          className={holdTypeButtonClasses[type]}
-          selected={activeType === type}
-          onClick={() => setActiveType(type)}
-          size={ButtonSizes.MEDIUM}
-        >
-          {type}
-        </Button>
-      ))}
-    </div>
+        <div className="flex flex-col items-center">
+          <button
+            onClick={() => setActiveType(type)}
+            key={type}
+            className={cn(baseClasses, holdTypeButtonClasses[type], {
+              [activeClasses]: activeType === type,
+            })}
+            aria-pressed={activeType === type}
+          >
+            {holdTypeIcons[type]}
+          </button>
+          <span className="text-xs text-white">{type}</span>
+        </div>
+      ))
+      }
+    </div >
   );
 };
 

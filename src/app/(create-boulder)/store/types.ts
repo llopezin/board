@@ -10,6 +10,7 @@ type NewBoulderStoreAction = {
   setActiveType: (type: keyof Boulder) => void;
   removeHold: (hold: HoldId, activeType: HoldTypes) => void;
   saveToLocalStorage: (boulderName: string, grade: string) => {success: boolean; error?: string};
+  clearBoulder: () => void;
 };
 
 export type NewBoulderStore = NewBoulderStoreState & NewBoulderStoreAction;

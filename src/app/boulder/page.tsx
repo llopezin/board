@@ -1,6 +1,9 @@
 import { redirect } from "next/navigation";
 import Boulder from "./components/Boulder/Boulder";
 import { routes } from "@/domain/contants/routes";
+import BoardHeaderNav from "@/components/common/BoardHeaderNav/BoardHeaderNav";
+import GoToBoulderListButton from "@/components/common/GoToBoulderListButton/GoToBoulderListButton";
+import GoToCreateBoulderButton from "@/components/common/GoToCreateBoulderButton/GoToCreateBoulderButton";
 
 
 export default async function BoulderPage({
@@ -13,5 +16,14 @@ export default async function BoulderPage({
 
   if (!id) redirect(routes.home);
 
-  return <Boulder id={id} />;
+  return (
+    <div className="relative grid grid-rows-[auto_1fr_auto] h-dvh">
+      <BoardHeaderNav>
+        {/* Add go back button here */}
+        <GoToCreateBoulderButton />
+        <GoToBoulderListButton />
+      </BoardHeaderNav>
+      <Boulder id={id} />
+    </div>
+  );
 }
