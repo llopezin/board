@@ -4,7 +4,9 @@ import { routes } from "@/domain/contants/routes";
 import BoardHeaderNav from "@/components/common/BoardHeaderNav/BoardHeaderNav";
 import GoToBoulderListButton from "@/components/common/GoToBoulderListButton/GoToBoulderListButton";
 import GoToCreateBoulderButton from "@/components/common/GoToCreateBoulderButton/GoToCreateBoulderButton";
-
+import GoBackButton from "@/components/common/GoBackButton/GoBackButton";
+import BoardHeaderBar from "@/components/common/BoardHeaderNav/BoardHeaderBar";
+import BoulderName from "./components/BoulderName/BoulderName";
 
 export default async function BoulderPage({
   searchParams,
@@ -14,15 +16,20 @@ export default async function BoulderPage({
   const params = await searchParams;
   const id = params.id;
 
+
+
   if (!id) redirect(routes.home);
 
   return (
-    <div className="relative grid grid-rows-[auto_1fr_auto] h-dvh">
-      <BoardHeaderNav>
-        {/* Add go back button here */}
-        <GoToCreateBoulderButton />
-        <GoToBoulderListButton />
-      </BoardHeaderNav>
+    <div className="relative grid grid-rows-[auto_auto_1fr_auto] h-dvh">
+      <BoardHeaderBar>
+        <GoBackButton />
+        <BoardHeaderNav>
+          <GoToCreateBoulderButton />
+          <GoToBoulderListButton />
+        </BoardHeaderNav>
+      </BoardHeaderBar>
+      <BoulderName id={id} />
       <Boulder id={id} />
     </div>
   );

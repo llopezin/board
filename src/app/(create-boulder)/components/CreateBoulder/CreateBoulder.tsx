@@ -15,6 +15,7 @@ import BoardFooter from "@/components/common/BoardFooter/BoardFooter";
 import ClearBoulder from "@/features/ClearBoulder/ClearBoulder";
 import GoToBoulderListButton from "@/components/common/GoToBoulderListButton/GoToBoulderListButton";
 import GoToCreateBoulderButton from "@/components/common/GoToCreateBoulderButton/GoToCreateBoulderButton";
+import BoardHeaderBar from "@/components/common/BoardHeaderNav/BoardHeaderBar";
 
 const creationBoardStateSelector = (state: NewBoulderStore) => ({
   boulder: state.boulder,
@@ -41,10 +42,11 @@ export default function CreateBoulder() {
 
   return (
     <div className="relative grid grid-rows-[auto_1fr_auto] h-dvh">
-      <BoardHeaderNav>
-        <GoToCreateBoulderButton />
-        <GoToBoulderListButton />
-      </BoardHeaderNav>
+      <BoardHeaderBar>
+        <BoardHeaderNav>
+          <GoToBoulderListButton />
+        </BoardHeaderNav>
+      </BoardHeaderBar>
 
       <YScrollContainer>
         <Board onClick={onBoardClick} boulder={boulder} />

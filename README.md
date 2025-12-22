@@ -32,6 +32,8 @@ board/
 │ │ │ ├── login/
 │ │ │ │ ├── components # Route specific components using top lvl data/contexts
 │ │ │ │ │  └── loginForm 
+│ │ │ │ ├── hooks/
+│ │ │ │ ├── utils/
 │ │ │ │ ├── page.tsx
 │ │ │ │ └──layout.tsx
 │ │ │ └── signin/
