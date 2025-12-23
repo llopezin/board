@@ -20,6 +20,8 @@ const BoulderList = () => {
         <h2 className="text-white text-2xl">Boulder List</h2>
       </div>
 
+      {!boulderList.length && <p className="text-white text-xl text-center">No boulders created yet</p>}
+
       <FullWidthList>
         {boulderList.map(({ name, grade, id }) => (
           <BoulderListItem key={name} boulderData={{ name, grade, id }} />
