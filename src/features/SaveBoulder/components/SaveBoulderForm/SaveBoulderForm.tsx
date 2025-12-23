@@ -3,12 +3,16 @@ import React from "react";
 import { SaveBoulderFormProps } from "./SaveBoulderForm.types";
 import { boulderGrades } from "@/domain/contants/boulderGrades";
 import Select from "@/components/ui/Select";
+import useFormError from "@/hooks/useFormError/useFormError";
+import ErrorBlock from "@/components/common/ErrorBlock/ErrorBlock";
 
 const SaveBoulderForm = ({ onSubmit }: SaveBoulderFormProps) => {
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const submitFn = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    onSubmit(e);
+    return onSubmit(e);
   };
+
+  const { error, onSubmit: handleSubmit } = useFormError({ submitFn });
 
   return (
     <form
@@ -23,6 +27,7 @@ const SaveBoulderForm = ({ onSubmit }: SaveBoulderFormProps) => {
           name="boulderName"
           placeholder="Boulder name"
           defaultValue="My First Boulder"
+          aria-invalid={error ? true : undefined}
           required
         />
       </div>
@@ -43,6 +48,9 @@ const SaveBoulderForm = ({ onSubmit }: SaveBoulderFormProps) => {
           ))}
         </Select>
       </div>
+
+      {error?.length && <ErrorBlock errors={error} />}
+
       <button data-testid="test-save-boulder" className="bg-purple-400 p-2 rounded" type="submit">
         Save Boulder
       </button>

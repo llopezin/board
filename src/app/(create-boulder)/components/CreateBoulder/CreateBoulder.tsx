@@ -15,20 +15,21 @@ import BoardFooter from "@/components/common/BoardFooter/BoardFooter";
 import ClearBoulder from "@/features/ClearBoulder/ClearBoulder";
 import GoToBoulderListButton from "@/components/common/GoToBoulderListButton/GoToBoulderListButton";
 import BoardHeaderBar from "@/components/common/BoardHeaderNav/BoardHeaderBar";
+import useSaveBoulder from "@/features/SaveBoulder/hooks/useSaveBoulder/useSaveBoulder";
 
 const creationBoardStateSelector = (state: NewBoulderStore) => ({
   boulder: state.boulder,
   setActiveType: state.setActiveType,
   activeType: state.activeType,
-  saveToLocalStorage: state.saveToLocalStorage,
 });
 
 export default function CreateBoulder() {
   const { onBoardClick } = UseCreateBoulderActions();
   const memoizedSelector = useShallow(creationBoardStateSelector);
   const router = useRouter();
+  const { saveToLocalStorage } = useSaveBoulder();
 
-  const { boulder, setActiveType, activeType, saveToLocalStorage } =
+  const { boulder, setActiveType, activeType } =
     useNewBoulderStore(memoizedSelector);
 
   const saveFn = (name: string, grade: string) => {
