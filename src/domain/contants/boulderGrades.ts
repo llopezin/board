@@ -2,7 +2,6 @@ const boulderGradesArray = [
   "3",
   "4",
   "5",
-  "6",
   "6A",
   "6A+",
   "6B",

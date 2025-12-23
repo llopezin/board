@@ -18,10 +18,11 @@ const SaveBoulder = ({ saveFn }: SaveBoulderProps) => {
     const formData = new FormData(e.currentTarget);
     const boulderName = formData.get("boulderName") as string;
     const grade = formData.get("boulderGrade") as string;
+    const saveState = saveFn(boulderName, grade);
 
-    const { success } = saveFn(boulderName, grade);
+    if (saveState.success) toggleModal();
 
-    if (success) toggleModal();
+    return saveState;
   };
 
   return (

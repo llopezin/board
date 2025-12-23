@@ -1,3 +1,5 @@
+import { submitState } from "@/hooks/useFormError/useFormError.types";
+
 export interface SaveBoulderProps {
-  saveFn: (name: string, grade: string) => {success: boolean; error?: string};
+  saveFn: (name: string, grade: string) => submitState;
 }
