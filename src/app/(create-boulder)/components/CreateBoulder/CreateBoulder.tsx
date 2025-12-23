@@ -8,10 +8,13 @@ import Board from "@/features/Board/Board";
 import BoardHeaderNav from "@/components/common/BoardHeaderNav/BoardHeaderNav";
 import SaveBoulder from "@/features/SaveBoulder/SaveBoulder";
 import HoldTypeSelector from "@/components/common/HoldTypeSelector/HoldTypeSelector";
-import Link from "next/link";
 import YScrollContainer from "@/components/common/YScrollContainer/YScrollContainer";
 import { useRouter } from "next/navigation";
 import { routes } from "@/domain/contants/routes";
+import BoardFooter from "@/components/common/BoardFooter/BoardFooter";
+import ClearBoulder from "@/features/ClearBoulder/ClearBoulder";
+import GoToBoulderListButton from "@/components/common/GoToBoulderListButton/GoToBoulderListButton";
+import BoardHeaderBar from "@/components/common/BoardHeaderNav/BoardHeaderBar";
 
 const creationBoardStateSelector = (state: NewBoulderStore) => ({
   boulder: state.boulder,
@@ -37,19 +40,24 @@ export default function CreateBoulder() {
   };
 
   return (
-    <div className="relative">
-      <BoardHeaderNav>
-        <Link className="text-white" href={routes.boulderList}>
-          My boulders
-        </Link>
-        <SaveBoulder saveFn={saveFn} />
-      </BoardHeaderNav>
+    <div className="relative grid grid-rows-[auto_1fr_auto] h-dvh">
+      <BoardHeaderBar>
+        <BoardHeaderNav>
+          <GoToBoulderListButton />
+        </BoardHeaderNav>
+      </BoardHeaderBar>
 
       <YScrollContainer>
         <Board onClick={onBoardClick} boulder={boulder} />
       </YScrollContainer>
 
-      <HoldTypeSelector setActiveType={setActiveType} activeType={activeType} />
+      <BoardFooter>
+        <HoldTypeSelector setActiveType={setActiveType} activeType={activeType} />
+        <div className="flex gap-2 items-center">
+          <ClearBoulder />
+          <SaveBoulder saveFn={saveFn} />
+        </div>
+      </BoardFooter>
     </div>
   );
 }

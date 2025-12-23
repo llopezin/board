@@ -5,10 +5,9 @@ import { useLocalStorage } from "@/hooks/useLocalStorage";
 import BoulderListItem from "../BoulderListItem/BoulderListItem";
 import FullWidthList from "@/components/common/FullWidthList/FullWidthList";
 import GoBackButton from "@/components/common/GoBackButton/GoBackButton";
-import { useRouter } from "next/navigation";
 
 const BoulderList = () => {
-  const router = useRouter();
+
   const [boulderList] = useLocalStorage<BoulderListItemDto[]>(
     "boulderList",
     []
@@ -17,7 +16,7 @@ const BoulderList = () => {
   return (
     <div className="bg-stone-800 w-screen h-screen">
       <div className="flex gap-4 p-4">
-        <GoBackButton onClick={() => router.back()} />
+        <GoBackButton />
         <h2 className="text-white text-2xl">Boulder List</h2>
       </div>
 

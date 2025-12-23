@@ -3,11 +3,16 @@
 - [x] Visualization board
 - [x] Add test for board creation
 - [x] Add test for board save
-- [ ] Decide on landing (when no boulders available?)
-- [ ] Design and implement navigation flows (Go back button on boulder list)
-- [ ] Reset button
+- [x] Decide on landing (when no boulders available?)
+- [x] Design and implement navigation flows (Go back button on boulder list)
+
+- [x] Secondary action bar - save & reset boulder
+- [x] Create new button format
+- [x] Add the to the secondary action bar
+
 - [ ] Handle duplicate boulder names
 - [ ] Remove boulder from list button
+- [ ] Clear errors
 - [ ] Deploy
 - [ ] Edition board
 - [ ] Boulder not found page

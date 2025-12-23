@@ -1,7 +1,12 @@
 import { redirect } from "next/navigation";
 import Boulder from "./components/Boulder/Boulder";
 import { routes } from "@/domain/contants/routes";
-
+import BoardHeaderNav from "@/components/common/BoardHeaderNav/BoardHeaderNav";
+import GoToBoulderListButton from "@/components/common/GoToBoulderListButton/GoToBoulderListButton";
+import GoToCreateBoulderButton from "@/components/common/GoToCreateBoulderButton/GoToCreateBoulderButton";
+import GoBackButton from "@/components/common/GoBackButton/GoBackButton";
+import BoardHeaderBar from "@/components/common/BoardHeaderNav/BoardHeaderBar";
+import BoulderName from "./components/BoulderName/BoulderName";
 
 export default async function BoulderPage({
   searchParams,
@@ -11,7 +16,21 @@ export default async function BoulderPage({
   const params = await searchParams;
   const id = params.id;
 
+
+
   if (!id) redirect(routes.home);
 
-  return <Boulder id={id} />;
+  return (
+    <div className="relative grid grid-rows-[auto_auto_1fr_auto] h-dvh">
+      <BoardHeaderBar>
+        <GoBackButton />
+        <BoardHeaderNav>
+          <GoToCreateBoulderButton />
+          <GoToBoulderListButton />
+        </BoardHeaderNav>
+      </BoardHeaderBar>
+      <BoulderName id={id} />
+      <Boulder id={id} />
+    </div>
+  );
 }
