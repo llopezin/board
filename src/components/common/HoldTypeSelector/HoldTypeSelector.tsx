@@ -34,6 +34,7 @@ const HoldTypeSelector = ({
               [activeClasses]: activeType === type,
             })}
             aria-pressed={activeType === type}
+            title={type}
           >
             {holdTypeIcons[type]}
           </button>

@@ -12,6 +12,7 @@
 
 - [ ] Handle duplicate boulder names
 - [ ] Remove boulder from list button
+- [ ] Clear errors
 - [ ] Deploy
 - [ ] Edition board
 - [ ] Boulder not found page

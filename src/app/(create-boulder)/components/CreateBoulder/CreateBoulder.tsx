@@ -14,7 +14,6 @@ import { routes } from "@/domain/contants/routes";
 import BoardFooter from "@/components/common/BoardFooter/BoardFooter";
 import ClearBoulder from "@/features/ClearBoulder/ClearBoulder";
 import GoToBoulderListButton from "@/components/common/GoToBoulderListButton/GoToBoulderListButton";
-import GoToCreateBoulderButton from "@/components/common/GoToCreateBoulderButton/GoToCreateBoulderButton";
 import BoardHeaderBar from "@/components/common/BoardHeaderNav/BoardHeaderBar";
 
 const creationBoardStateSelector = (state: NewBoulderStore) => ({

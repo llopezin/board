@@ -1,9 +1,14 @@
-import { expect, test } from "vitest";
+import { expect, test, vi } from "vitest";
 import { render } from "vitest-browser-react";
 import { userEvent } from "vitest/browser";
 import "@/app/styles/globals.css";
 import CreateBoulder from "@/app/(create-boulder)/components/CreateBoulder/CreateBoulder";
 import holdStyles from "@/features/Board/styles";
+
+
+vi.mock('next/navigation', () => ({
+  useRouter: vi.fn(),
+}));
 
 test("Create boulder: First click sets hold as start", async () => {
   const { getByTestId } = await render(<CreateBoulder />);
@@ -50,9 +55,9 @@ test("Create boulder: Third clicked hold is set as hand", async () => {
 });
 
 test("Create boulder: If a third top hold is clicked, first one is turned off", async () => {
-  const { getByTestId, getByText } = await render(<CreateBoulder />);
+  const { getByTestId, getByTitle } = await render(<CreateBoulder />);
 
-  await userEvent.click(getByText("top"));
+  await userEvent.click(getByTitle("top"));
   await userEvent.click(getByTestId("test-top"));
 
   for (const className of holdStyles.top) {
