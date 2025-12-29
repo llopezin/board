@@ -34,6 +34,7 @@ const HoldTypeSelector = ({
               [activeClasses]: activeType === type,
             })}
             aria-pressed={activeType === type}
+            aria-label={type}
             title={type}
           >
             {holdTypeIcons[type]}
