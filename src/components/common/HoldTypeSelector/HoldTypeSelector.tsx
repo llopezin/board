@@ -26,10 +26,9 @@ const HoldTypeSelector = ({
   return (
     <div className="flex gap-2">
       {holdTypeNames.map((type) => (
-        <div className="flex flex-col items-center">
+        <div className="flex flex-col items-center" key={type}>
           <button
             onClick={() => setActiveType(type)}
-            key={type}
             className={cn(baseClasses, holdTypeButtonClasses[type], {
               [activeClasses]: activeType === type,
             })}
