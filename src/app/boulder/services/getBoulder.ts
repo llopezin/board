@@ -1,11 +1,6 @@
 import { BoulderListItemDto } from "@/domain/dtos/BoulderListItem.dto";
 import { db } from "@/lib/firebase/client";
-
-// TO DO - move to separate file
-export type GetBoulderReturn = {
-    boulder: Omit<BoulderListItemDto, 'id'> | null;
-    error: boolean;
-}
+import { GetBoulderReturn } from "./getBoulders.types";
 
 export default async function getBoulder(id: string): Promise<GetBoulderReturn> {
     try {
