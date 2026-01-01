@@ -10,10 +10,19 @@
 - [x] Create new button format
 - [x] Add the to the secondary action bar
 
-- [ ] Handle duplicate boulder names
+- [x] Handle duplicate boulder names
+- [x] Deploy
+
+- [x] Add database
+- [ ] Add authentication
+- [ ] Add tRPC
+
+- [ ] Add filter by grade on boulder list
+- [ ] Add search by name on boulder list
+- [ ] Add infinite scroll on boulder list (virtualise)    
+
 - [ ] Remove boulder from list button
 - [ ] Clear errors
-- [ ] Deploy
 - [ ] Edition board
 - [ ] Boulder not found page
 

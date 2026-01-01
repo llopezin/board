@@ -1,4 +1,3 @@
-
 export type BoulderNameProps = {
-    id: string;
+    name: string;
 }

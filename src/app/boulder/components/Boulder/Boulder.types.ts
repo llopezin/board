@@ -1,5 +1,5 @@
-import { BoulderListItemDto } from "@/domain/dtos/BoulderListItem.dto";
+import { GetBoulderReturn } from "../../services/getBoulder";
 
 export type BoulderProps = {
-  id: BoulderListItemDto["id"];
+  bouderDataRes: Promise<GetBoulderReturn>;
 };
