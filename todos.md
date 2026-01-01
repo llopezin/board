@@ -17,6 +17,8 @@
 - [ ] Add authentication
 - [ ] Add tRPC
 
+- [ ] Add boulder list item dto keys as string constants in object
+
 - [ ] Add filter by grade on boulder list
 - [ ] Add search by name on boulder list
 - [ ] Add infinite scroll on boulder list (virtualise)    

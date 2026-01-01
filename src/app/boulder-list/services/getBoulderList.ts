@@ -1,7 +1,8 @@
 import { BoulderListItemDto } from "@/domain/dtos/BoulderListItem.dto";
 import { db } from "@/lib/firebase/client";
+import { GetBoulderListReturn } from "./getBoulderList.types";
 
-export default async function getBoulderList(): Promise<{ bouldersList: BoulderListItemDto[] | null; error: boolean }> {
+export default async function getBoulderList(): GetBoulderListReturn {
     try {
         const boulders = db.collection("boulder");
         const boulderNamesSnapshot = await boulders.select("name", "grade").get();

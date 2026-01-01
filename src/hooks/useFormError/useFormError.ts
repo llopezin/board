@@ -1,15 +1,20 @@
-import { useState } from "react";
-import { useFormErrorArgs } from "./useFormError.types";
+// "use client";
 
-export default function useFormError({ submitFn }: useFormErrorArgs) {
-    const [error, setError] = useState<string[] | null>(null);
+// import { useState } from "react";
+// import { useFormErrorArgs } from "./useFormError.types";
 
-    const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-        const result = submitFn(e);
-        if (result.errors) setError(result.errors);
-    };
+// export default function useFormError({ submitFn }: useFormErrorArgs) {
+//     const [error, setError] = useState<string[] | null>(null);
+//     const [pending, setPending] = useState(false);
 
-    const clearError = () => setError(null);
+//     const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+//         setPending(true);
+//         const result = await submitFn(e);
+//         if (result.errors) setError(result.errors);
+//         setPending(false);
+//     };
 
-    return { error, onSubmit, clearError };
-}
+//     const clearError = () => setError(null);
+
+//     return { error, onSubmit, clearError, pending };
+// }

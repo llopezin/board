@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useEffect } from "react";
 import { FS_MODAL_CUSTOM_EVENT_TYPE } from "./FullScreenModal.constants";
 import { FullScreenModalProps } from "./FullScreenModal.types";

@@ -1,5 +1,3 @@
-"use client";
-
 import CreateBoulder from "./components/CreateBoulder/CreateBoulder";
 
 export default function CreateBoulderPage() {

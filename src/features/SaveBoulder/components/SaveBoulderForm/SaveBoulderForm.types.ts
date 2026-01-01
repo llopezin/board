@@ -1,6 +1,12 @@
-import React from "react";
-import { submitState } from "@/hooks/useFormError/useFormError.types";
+import { Boulder } from "@/features/Board/types";
 
 export interface SaveBoulderFormProps {
-  onSubmit: (e: React.FormEvent<HTMLFormElement>) => submitState;
+  saveFn: (state: SaveBoulderFormState, formData: FormData) => Promise<SaveBoulderFormState>;
+  boulder: Boulder;
+  onSuccess: () => void;
+}
+
+export type SaveBoulderFormState = {
+  errors?: string[];
+  success: boolean;
 }
