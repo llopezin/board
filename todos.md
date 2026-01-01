@@ -14,6 +14,7 @@
 - [x] Deploy
 
 - [x] Add database
+- [ ] Add database rules and handle errors (check type on post)
 - [ ] Add authentication
 - [ ] Add tRPC
 
@@ -24,7 +25,7 @@
 - [ ] Add infinite scroll on boulder list (virtualise)    
 
 - [ ] Remove boulder from list button
-- [ ] Clear errors
+- [x] Clear errors
 - [ ] Edition board
 - [ ] Boulder not found page
 
