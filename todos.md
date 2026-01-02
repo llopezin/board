@@ -14,9 +14,11 @@
 - [x] Deploy
 
 - [x] Add database
-- [ ] Add database rules and handle errors (check type on post)
+- [x] Add database rules and handle errors (check type on post)
 - [ ] Add authentication
 - [ ] Add tRPC
+
+- [ ] FIX - On create boulder, redirect to boulder list
 
 - [ ] Add boulder list item dto keys as string constants in object
 

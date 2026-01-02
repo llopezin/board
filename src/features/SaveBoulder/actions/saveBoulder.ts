@@ -3,6 +3,7 @@
 import { saveBoulderErrors } from "../constants/errorsMessages";
 import postBoulder from "../service/postBoulder";
 import { SaveBoulderFormState } from "../components/SaveBoulderForm/SaveBoulderForm.types";
+import boulderAlreadyExists from "./existingBoulderCheck";
 
 
 export default async function saveBoulder(state: SaveBoulderFormState, formData: FormData): Promise<SaveBoulderFormState> {
@@ -10,6 +11,7 @@ export default async function saveBoulder(state: SaveBoulderFormState, formData:
     const grade = formData.get("grade") as string;
     const boulderData = formData.get("boulder") as string;
     const boulder = JSON.parse(boulderData);
+    const boulderNameExists = await boulderAlreadyExists(name);
 
     const boulderWithGradeAndName = {
         boulder: boulder,
@@ -21,6 +23,7 @@ export default async function saveBoulder(state: SaveBoulderFormState, formData:
 
     if (!boulder.start.length) errors.push(saveBoulderErrors.noStartHold);
     if (!boulder.top.length) errors.push(saveBoulderErrors.noTopHold);
+    if (boulderNameExists) errors.push(saveBoulderErrors.nameExists);
 
     if (errors.length) return { success: false, errors };
 
