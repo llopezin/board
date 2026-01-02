@@ -19,6 +19,8 @@
 - [ ] Add tRPC
 
 - [ ] FIX - On create boulder, redirect to boulder list
+- [x] FIX - Add padding around modal close button
+- [ ] FIX - Add back button to modal
 
 - [ ] Add boulder list item dto keys as string constants in object
 
