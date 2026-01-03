@@ -1,6 +1,6 @@
 import { redirect } from "next/navigation";
 import Boulder from "./components/Boulder/Boulder";
-import { routes } from "@/domain/contants/routes";
+import { routes } from "@/constants/routes";
 import BoardHeaderNav from "@/components/common/BoardHeaderNav/BoardHeaderNav";
 import GoToBoulderListButton from "@/components/common/GoToBoulderListButton/GoToBoulderListButton";
 import GoToCreateBoulderButton from "@/components/common/GoToCreateBoulderButton/GoToCreateBoulderButton";

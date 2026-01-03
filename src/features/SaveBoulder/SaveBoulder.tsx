@@ -8,7 +8,7 @@ import SaveIcon from "@/components/icons/save";
 import CloseIcon from "@/components/icons/close";
 import { SaveBoulderProps } from "./SaveBoulder.types";
 import { useRouter } from "next/navigation";
-import { routes } from "@/domain/contants/routes";
+import { routes } from "@/constants/routes";
 
 const SaveBoulder = ({ saveFn, boulder }: SaveBoulderProps) => {
   const { toggleModal } = useFullScreenModal(fullScreenModalIds.saveModal);

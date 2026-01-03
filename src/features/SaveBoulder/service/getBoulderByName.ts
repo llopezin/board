@@ -1,8 +1,9 @@
 import { db } from "@/lib/firebase/client";
+import { collectionNames } from "@/constants/collection-names";
 
 export default async function getBoulderByName(name: string) {
     try {
-        const collection = db.collection("boulder");
+        const collection = db.collection(collectionNames.boulder);
         const query = collection.select("name").where("name", "==", name);
         const snapshot = await query.get();
 
