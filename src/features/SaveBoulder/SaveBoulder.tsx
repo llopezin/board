@@ -7,13 +7,9 @@ import { useFullScreenModal } from "@/components/common/FullScreenModal/hooks/us
 import SaveIcon from "@/components/icons/save";
 import CloseIcon from "@/components/icons/close";
 import { SaveBoulderProps } from "./SaveBoulder.types";
-import { useRouter } from "next/navigation";
-import { routes } from "@/constants/routes";
 
-const SaveBoulder = ({ saveFn, boulder }: SaveBoulderProps) => {
+const SaveBoulder = ({ saveFn, boulder, onSuccess }: SaveBoulderProps) => {
   const { toggleModal } = useFullScreenModal(fullScreenModalIds.saveModal);
-  const router = useRouter();
-  const onSuccess = () => router.push(routes.boulderList);
 
   return (
     <>

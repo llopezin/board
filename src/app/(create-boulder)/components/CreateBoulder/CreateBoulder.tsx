@@ -14,19 +14,28 @@ import ClearBoulder from "@/features/ClearBoulder/ClearBoulder";
 import GoToBoulderListButton from "@/components/common/GoToBoulderListButton/GoToBoulderListButton";
 import BoardHeaderBar from "@/components/common/BoardHeaderNav/BoardHeaderBar";
 import saveBoulder from "@/features/SaveBoulder/actions/saveBoulder";
+import { useRouter } from "next/navigation";
+import { routes } from "@/constants/routes";
 
 const creationBoardStateSelector = (state: NewBoulderStore) => ({
   boulder: state.boulder,
   setActiveType: state.setActiveType,
   activeType: state.activeType,
+  clearBoulder: state.clearBoulder,
 });
 
 export default function CreateBoulder() {
+  const router = useRouter();
   const { onBoardClick } = UseCreateBoulderActions();
   const memoizedSelector = useShallow(creationBoardStateSelector);
 
-  const { boulder, setActiveType, activeType } =
+  const { boulder, setActiveType, activeType, clearBoulder } =
     useNewBoulderStore(memoizedSelector);
+
+  const onSuccess = () => {
+    clearBoulder();
+    router.push(routes.boulderList)
+  };
 
   return (
     <div className="relative grid grid-rows-[auto_1fr_auto] h-dvh">
@@ -44,7 +53,7 @@ export default function CreateBoulder() {
         <HoldTypeSelector setActiveType={setActiveType} activeType={activeType} />
         <div className="flex gap-2 items-center">
           <ClearBoulder />
-          <SaveBoulder saveFn={saveBoulder} boulder={boulder} />
+          <SaveBoulder saveFn={saveBoulder} boulder={boulder} onSuccess={onSuccess} />
         </div>
       </BoardFooter>
     </div>

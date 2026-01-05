@@ -1,6 +1,5 @@
 "use server";
 
-import { revalidatePath } from "next/cache";
 import { saveBoulderErrors } from "../constants/errorsMessages";
 import postBoulder from "../service/postBoulder";
 import { SaveBoulderFormState } from "../components/SaveBoulderForm/SaveBoulderForm.types";
@@ -31,7 +30,6 @@ export default async function saveBoulder(state: SaveBoulderFormState, formData:
 
     try {
         await postBoulder(boulderWithGradeAndName);
-        revalidatePath(routes.boulderList);
         return { success: true };
     } catch (error) {
         return { success: false, errors: [saveBoulderErrors.unknownError] };

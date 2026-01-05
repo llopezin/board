@@ -3,5 +3,6 @@ import { SaveBoulderFormState } from "./components/SaveBoulderForm/SaveBoulderFo
 
 export interface SaveBoulderProps {
   saveFn: (state: SaveBoulderFormState, formData: FormData) => Promise<SaveBoulderFormState>;
-  boulder: Boulder
+  boulder: Boulder,
+  onSuccess: () => void
 }

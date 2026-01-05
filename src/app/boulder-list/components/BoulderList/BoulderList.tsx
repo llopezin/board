@@ -3,12 +3,11 @@
 import BoulderListItem from "../BoulderListItem/BoulderListItem";
 import FullWidthList from "@/components/common/FullWidthList/FullWidthList";
 import type { BoulderListProps } from "./BoulderList.types";
-import { use } from "react";
 
 const errorClasses = "text-white text-xl text-center";
 
 const BoulderList = ({ boulderList }: BoulderListProps) => {
-  const { bouldersList, error } = use(boulderList);
+  const { bouldersList, error } = boulderList;
   const fetchError = error || !bouldersList;
 
   if (fetchError) return <p className={errorClasses}>Error fetching boulders list</p>;
