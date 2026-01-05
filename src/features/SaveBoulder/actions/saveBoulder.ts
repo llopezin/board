@@ -1,11 +1,11 @@
 "use server";
 
-import { revalidateTag } from "next/cache";
-import { cacheTags } from "@/constants/cache-tags";
+import { revalidatePath } from "next/cache";
 import { saveBoulderErrors } from "../constants/errorsMessages";
 import postBoulder from "../service/postBoulder";
 import { SaveBoulderFormState } from "../components/SaveBoulderForm/SaveBoulderForm.types";
 import boulderAlreadyExists from "./existingBoulderCheck";
+import { routes } from "@/constants/routes";
 
 
 export default async function saveBoulder(state: SaveBoulderFormState, formData: FormData): Promise<SaveBoulderFormState> {
@@ -31,7 +31,7 @@ export default async function saveBoulder(state: SaveBoulderFormState, formData:
 
     try {
         await postBoulder(boulderWithGradeAndName);
-        revalidateTag(cacheTags.boulderList, 'max');
+        revalidatePath(routes.boulderList);
         return { success: true };
     } catch (error) {
         return { success: false, errors: [saveBoulderErrors.unknownError] };
