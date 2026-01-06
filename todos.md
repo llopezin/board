@@ -18,15 +18,16 @@
 - [ ] Add authentication
 - [ ] Add tRPC
 
-- [ ] FIX - On create boulder, redirect to boulder list
+- [x] FIX - On create boulder, redirect to boulder list
 - [x] FIX - Add padding around modal close button
-- [ ] FIX - Add back button to modal
+- [ ] Add back button to modal
+- [ ] Block save button until start and top hold are added
 
 - [ ] Add boulder list item dto keys as string constants in object
 
+- [ ] Add infinite scroll on boulder list (virtualise)
 - [ ] Add filter by grade on boulder list
 - [ ] Add search by name on boulder list
-- [ ] Add infinite scroll on boulder list (virtualise)    
 
 - [ ] Remove boulder from list button
 - [x] Clear errors
