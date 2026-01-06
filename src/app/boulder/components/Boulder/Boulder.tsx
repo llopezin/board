@@ -1,16 +1,16 @@
-"use client";
-
 import Board from "@/features/Board/Board";
 import { BoulderProps } from "./Boulder.types";
 import YScrollContainer from "@/components/common/YScrollContainer/YScrollContainer";
-import { useBoulderData } from "../../hooks/useBoulderData";
+import { use } from "react";
 
-const Boulder = ({ id }: BoulderProps) => {
-  const boulderData = useBoulderData(id);
+const Boulder = ({ bouderDataRes }: BoulderProps) => {
+  const { boulder, error } = use(bouderDataRes);
+
+  if (error) return <div>Error finding boulder</div>;
 
   return (
     <YScrollContainer>
-      <Board boulder={boulderData?.boulder} />
+      <Board boulder={boulder?.boulder} />
     </YScrollContainer>
   );
 };

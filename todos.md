@@ -10,10 +10,27 @@
 - [x] Create new button format
 - [x] Add the to the secondary action bar
 
-- [ ] Handle duplicate boulder names
+- [x] Handle duplicate boulder names
+- [x] Deploy
+
+- [x] Add database
+- [x] Add database rules and handle errors (check type on post)
+- [ ] Add authentication
+- [ ] Add tRPC
+
+- [x] FIX - On create boulder, redirect to boulder list
+- [x] FIX - Add padding around modal close button
+- [ ] Add back button to modal
+- [ ] Block save button until start and top hold are added
+
+- [ ] Add boulder list item dto keys as string constants in object
+
+- [ ] Add infinite scroll on boulder list (virtualise)
+- [ ] Add filter by grade on boulder list
+- [ ] Add search by name on boulder list
+
 - [ ] Remove boulder from list button
-- [ ] Clear errors
-- [ ] Deploy
+- [x] Clear errors
 - [ ] Edition board
 - [ ] Boulder not found page
 

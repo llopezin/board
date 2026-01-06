@@ -1,5 +1,5 @@
 import CreateBoulderIcon from "@/components/icons/createBoulder";
-import { routes } from "@/domain/contants/routes";
+import { routes } from "@/constants/routes";
 import Link from "next/link";
 
 export default function GoToCreateBoulderButton() {

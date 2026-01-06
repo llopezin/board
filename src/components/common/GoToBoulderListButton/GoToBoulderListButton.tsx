@@ -1,6 +1,6 @@
 
 import BoulderListIcon from "@/components/icons/boulderList";
-import { routes } from "@/domain/contants/routes";
+import { routes } from "@/constants/routes";
 import Link from "next/link";
 
 export default function GoToBoulderListButton() {

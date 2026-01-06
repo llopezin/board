@@ -1,5 +1,8 @@
-import { submitState } from "@/hooks/useFormError/useFormError.types";
+import { Boulder } from "../Board/types";
+import { SaveBoulderFormState } from "./components/SaveBoulderForm/SaveBoulderForm.types";
 
 export interface SaveBoulderProps {
-  saveFn: (name: string, grade: string) => submitState;
+  saveFn: (state: SaveBoulderFormState, formData: FormData) => Promise<SaveBoulderFormState>;
+  boulder: Boulder,
+  onSuccess: () => void
 }
