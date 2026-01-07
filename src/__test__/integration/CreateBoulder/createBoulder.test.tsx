@@ -2,7 +2,7 @@ import { expect, test, vi } from "vitest";
 import { render } from "vitest-browser-react";
 import { userEvent } from "vitest/browser";
 import "@/app/styles/globals.css";
-import CreateBoulder from "@/app/(create-boulder)/components/CreateBoulder/CreateBoulder";
+import CreateBoulder from "@/app/create-boulder/components/CreateBoulder/CreateBoulder";
 import holdStyles from "@/features/Board/styles";
 
 
