@@ -9,10 +9,10 @@ import { routes } from "@/constants/routes";
 import { useRouter } from "next/navigation";
 import { useActionState, useEffect } from "react";
 import createUser from "../../actions/create-user/createUser";
-import { initialState } from "./LoginForm.constants.";
-import { LoginFormProps } from "./LoginForm.types";
+import { initialState } from "./SignUp.constants.";
+import { SignUpFormProps } from "./SignUpForm.types";
 
-export default function LoginForm({ onSuccess }: LoginFormProps) {
+export default function SignUpForm({ onSuccess }: SignUpFormProps) {
     const [state, formAction, pending] = useActionState(createUser, initialState);
     const router = useRouter();
 

@@ -3,7 +3,7 @@
 import { UserDto } from "@/domain/dtos/User.dto";
 import { auth } from "@/lib/firebase/client";
 import { z } from "zod";
-import { LoginSchema } from "../../validation/loginSchema";
+import { SignUpSchema } from "../../validation/signUpSchema";
 import { CreateUserResponse } from "./createUser.types";
 
 export default async function createUser(_state: CreateUserResponse, formData: FormData): Promise<CreateUserResponse> {
@@ -11,7 +11,7 @@ export default async function createUser(_state: CreateUserResponse, formData: F
     const email = formData.get("email") as string;
     const password = formData.get("password") as string;
     const displayName = formData.get("displayName") as string;
-    const result = LoginSchema.safeParse({ email, password, displayName });
+    const result = SignUpSchema.safeParse({ email, password, displayName });
 
     if (!result.success) {
         return {

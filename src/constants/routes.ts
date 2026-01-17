@@ -2,5 +2,6 @@ export const routes = {
     home: "/",
     boulderList: "/",
     createBoulder: "/create-boulder",
-    login: "/login",
+    login: "/log-in",
+    signup: "/sign-up",
 }

@@ -1,6 +1,6 @@
 
+import { getAuthenticatedUser } from "@/app/(auth)/_services/authenticate-by-token";
 import { routes } from "@/constants/routes";
-import { getAuthenticatedUser } from "@/lib/auth/auth-service";
 import { redirect } from "next/navigation";
 import CreateBoulder from "./components/CreateBoulder/CreateBoulder";
 

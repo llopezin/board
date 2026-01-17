@@ -1,3 +1,5 @@
+'use server';
+
 import { clientAuth } from "@/lib/firebase/client";
 import { signInWithCustomToken, User } from "firebase/auth";
 import { cookies } from "next/headers";

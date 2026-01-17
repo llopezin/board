@@ -22,10 +22,11 @@
 - [x] FIX - Add padding around modal close button
 - [ ] Add back button to modal
 - [ ] Block save button until start and top hold are added
+- [ ] Add create boulder button to boulder list
 
 - [ ] Add boulder list item dto keys as string constants in object
 
-- [ ] Add infinite scroll on boulder list (virtualise)
+- [ ] Add pagination on boulder list (virtualise)
 - [ ] Add filter by grade on boulder list
 - [ ] Add search by name on boulder list
 
