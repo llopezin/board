@@ -1,12 +1,13 @@
 "use client";
 
+import useToken from "@/hooks/useToken/useToken";
 import LoginForm from "./components/loginForm/LoginForm";
-import { UserDto } from "@/domain/dtos/User.dto";
 
 export default function LoginPage() {
-    const handleSuccess = (user: UserDto, token: string) => {
-        console.log("Login successful:", user, token);
-        // Additional logic for success can be added here
+    const { setToken } = useToken();
+
+    const handleSuccess = (token: string) => {
+        setToken(token);
     };
 
     return (

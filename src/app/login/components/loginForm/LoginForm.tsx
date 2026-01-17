@@ -1,28 +1,27 @@
 "use client";
 
-import { useActionState, useEffect } from "react";
+import ErrorBlock from "@/components/common/ErrorBlock/ErrorBlock";
+import { Spinner } from "@/components/common/Spinner/Spinner";
+import SubmitButton from "@/components/common/SubmitButton/SubmitButton";
 import Form from "@/components/ui/Form/Form";
 import TextInput from "@/components/ui/TextInput/TextInput";
-import SubmitButton from "@/components/common/SubmitButton/SubmitButton";
-import { Spinner } from "@/components/common/Spinner/Spinner";
-import ErrorBlock from "@/components/common/ErrorBlock/ErrorBlock";
+import { routes } from "@/constants/routes";
+import { useRouter } from "next/navigation";
+import { useActionState, useEffect } from "react";
 import createUser from "../../actions/create-user/createUser";
-import { CreateUserResponse } from "../../actions/create-user/createUser.types";
+import { initialState } from "./LoginForm.constants.";
 import { LoginFormProps } from "./LoginForm.types";
-
-const initialState: CreateUserResponse = {
-    errors: { errors: [] },
-    success: false,
-};
 
 export default function LoginForm({ onSuccess }: LoginFormProps) {
     const [state, formAction, pending] = useActionState(createUser, initialState);
+    const router = useRouter();
 
     useEffect(() => {
-        if (state.success && onSuccess) {
-            onSuccess(state.user, state.token);
-        }
-    }, [state, onSuccess]);
+        if (state.success) {
+            onSuccess?.(state.token)
+            router.push(routes.createBoulder);
+        };
+    }, [state]);
 
     const errors = !state.success ? state.errors : undefined;
 

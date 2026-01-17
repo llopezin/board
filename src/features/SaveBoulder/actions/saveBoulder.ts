@@ -1,13 +1,12 @@
 "use server";
 
+import { SaveBoulderFormState } from "../components/SaveBoulderForm/SaveBoulderForm.types";
 import { saveBoulderErrors } from "../constants/errorsMessages";
 import postBoulder from "../service/postBoulder";
-import { SaveBoulderFormState } from "../components/SaveBoulderForm/SaveBoulderForm.types";
 import boulderAlreadyExists from "./existingBoulderCheck";
-import { routes } from "@/constants/routes";
 
 
-export default async function saveBoulder(state: SaveBoulderFormState, formData: FormData): Promise<SaveBoulderFormState> {
+export default async function saveBoulder(_state: SaveBoulderFormState, formData: FormData): Promise<SaveBoulderFormState> {
     const name = formData.get("name") as string;
     const grade = formData.get("grade") as string;
     const boulderData = formData.get("boulder") as string;
@@ -25,13 +24,13 @@ export default async function saveBoulder(state: SaveBoulderFormState, formData:
     if (!boulder.start.length) errors.push(saveBoulderErrors.noStartHold);
     if (!boulder.top.length) errors.push(saveBoulderErrors.noTopHold);
     if (boulderNameExists) errors.push(saveBoulderErrors.nameExists);
-
     if (errors.length) return { success: false, errors };
 
     try {
         await postBoulder(boulderWithGradeAndName);
         return { success: true };
     } catch (error) {
+        console.error("Error saving boulder:", error);
         return { success: false, errors: [saveBoulderErrors.unknownError] };
     }
 }
