@@ -1,24 +1,12 @@
-import { MAX_START_HOLDS, MAX_TOP_HOLDS } from "../utils/constants";
+import { HoldTypes } from "@/features/Board/types";
 import useNewBoulderStore from "../store/NewBoulderStore";
+import { MAX_START_HOLDS, MAX_TOP_HOLDS } from "../utils/constants";
 import { HandleMoreThanTwoStartsArgs } from "./types";
-import { BoulderEntries, HoldTypes } from "@/features/Board/types";
-import { IsHoldActiveProps } from "../components/CreateBoulder/CreateBoulder.types";
+import { isHoldActive } from "./utils";
 
 export default function UseCreateBoulderActions() {
   const { setActiveType, removeHold, activeType, setHold, boulder } =
     useNewBoulderStore();
-
-  function isHoldActive({ holdId, boulder }: IsHoldActiveProps) {
-    const boulderEntries = Object.entries(boulder) as BoulderEntries;
-
-    for (const [holdType, holdIds] of boulderEntries) {
-      if (holdIds.includes(holdId)) {
-        return { holdType: holdType as HoldTypes, isActive: true };
-      }
-    }
-
-    return { holdType: null, isActive: false };
-  }
 
   function handleMoreThanTwoTops() {
     const isMaxHolds = boulder[activeType].length >= MAX_TOP_HOLDS;
