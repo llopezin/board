@@ -1,6 +1,6 @@
 "use client";
 
-import { getUserWithEmailAndPassword } from "@/app/(auth)/_services/login-user";
+import { getUserWithEmailAndPassword } from "@/app/(auth)/log-in/actions/login-user/loginUser";
 import ErrorBlock from "@/components/common/ErrorBlock/ErrorBlock";
 import { Spinner } from "@/components/common/Spinner/Spinner";
 import SubmitButton from "@/components/common/SubmitButton/SubmitButton";
@@ -9,49 +9,25 @@ import TextInput from "@/components/ui/TextInput/TextInput";
 import { routes } from "@/constants/routes";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useActionState, useEffect } from "react";
+import { initialState } from "./LoginForm.constants.";
 import { LoginFormProps } from "./LoginForm.types";
 
 export default function LoginForm({ onSuccess }: LoginFormProps) {
+    const [state, formAction, pending] = useActionState(getUserWithEmailAndPassword, initialState);
     const router = useRouter();
-    const [state, setState] = useState<{
-        pending: boolean;
-        success: boolean;
-        error: Error | null;
-    }>({
-        pending: false,
-        success: false,
-        error: null,
-    });
-
-    const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-        e.preventDefault();
-        const formData = new FormData(e.currentTarget);
-
-        setState({ ...state, pending: true });
-
-        const { error, token } = await getUserWithEmailAndPassword(formData);
-
-        if (token) {
-            setState({ ...state, pending: false, success: true });
-            onSuccess?.(token);
-        }
-
-        if (error) {
-            setState({ ...state, pending: false, error: error });
-        }
-
-    };
 
     useEffect(() => {
         if (state.success) {
-            console.log('onSuccess: ', onSuccess);
+            onSuccess?.(state.token);
             router.push(routes.createBoulder);
         };
-    }, [state.success]);
+    }, [state]);
+
+    const errors = !state.success ? state.errors : undefined;
 
     return (
-        <Form className="w-full max-w-sm" onSubmit={onSubmit}>
+        <Form className="w-full max-w-sm" action={formAction}>
 
             <TextInput
                 className="text-stone-800"
@@ -70,13 +46,13 @@ export default function LoginForm({ onSuccess }: LoginFormProps) {
                 required
             />
 
-            {state.error && <ErrorBlock errors={[state.error.message].flat()} />}
+            {!!errors?.errors?.length && <ErrorBlock errors={[errors.errors].flat()} />}
 
-            <SubmitButton disabled={state.pending}>
-                {state.pending ? <Spinner className="max-h-6 max-w-6" /> : "Login"}
+            <SubmitButton disabled={pending}>
+                {pending ? <Spinner className="max-h-6 max-w-6" /> : "Login"}
             </SubmitButton>
 
-            <Link href={routes.signup}>Sign up here</Link>
+            <p className="text-left">Don&apos;t have an account? <Link className="cursor-pointer hover:underline font-semibold" href={routes.signup}>Sign up here</Link></p>
 
         </Form>
     );

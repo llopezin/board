@@ -20,7 +20,8 @@
 
 - [x] FIX - On create boulder, redirect to boulder list
 - [x] FIX - Add padding around modal close button
-- [ ] Add back button to modal
+- [ ] Add back button to modal?
+- [ ] Pinch zoom only on main area
 - [ ] Block save button until start and top hold are added
 - [ ] Add create boulder button to boulder list
 
@@ -31,7 +32,7 @@
 - [ ] Add search by name on boulder list
 
 - [ ] Remove boulder from list button
-- [x] Clear errors
+- [ ] Clear errors
 - [ ] Edition board
 - [ ] Boulder not found page
 

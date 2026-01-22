@@ -17,11 +17,9 @@ export async function getAuthenticatedUser(): Promise<User | null> {
 
         if (!token?.value) return null;
 
-
         const userCredential = await signInWithCustomToken(clientAuth, token.value);
         return userCredential.user;
-    } catch (error) {
-        console.error("Error authenticating user:", error);
-        return null;
+    } catch {
+        return null; // On Error - not authorized
     }
 }

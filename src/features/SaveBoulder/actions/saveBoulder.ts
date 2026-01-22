@@ -5,7 +5,6 @@ import { saveBoulderErrors } from "../constants/errorsMessages";
 import postBoulder from "../service/postBoulder";
 import boulderAlreadyExists from "./existingBoulderCheck";
 
-
 export default async function saveBoulder(_state: SaveBoulderFormState, formData: FormData): Promise<SaveBoulderFormState> {
     const name = formData.get("name") as string;
     const grade = formData.get("grade") as string;

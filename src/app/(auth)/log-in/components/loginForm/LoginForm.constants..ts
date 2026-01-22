@@ -1,6 +1,6 @@
-import { CreateUserResponse } from "../../actions/login-user/loginUser.types";
+import { LoginUserResponse } from "../../actions/login-user/loginUser.types";
 
-export const initialState: CreateUserResponse = {
+export const initialState: LoginUserResponse = {
     errors: { errors: [] },
     success: false,
 };

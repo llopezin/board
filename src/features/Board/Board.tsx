@@ -1,12 +1,12 @@
 "use client";
 
-import { useEffect, useRef } from "react";
-import { BoardProps, Boulder } from "./types";
-import paintBoulder from "./utils/paintBoulder";
-import { activateHolds, deactivateHolds } from "./utils/activateHold";
 import deepEqual from "@/utils/deepEqual";
-import getDifference from "./utils/getDifference";
+import { useEffect, useRef } from "react";
 import BoardMap from "./components/BoardMap/BoardMap";
+import { BoardProps, Boulder } from "./types";
+import { activateHolds, deactivateHolds } from "./utils/activateHold";
+import getDifference from "./utils/getDifference";
+import paintBoulder from "./utils/paintBoulder";
 
 function Board({ onClick, boulder }: BoardProps) {
   const boardRef = useRef<HTMLDivElement>(null);
@@ -42,7 +42,7 @@ function Board({ onClick, boulder }: BoardProps) {
   return (
     <>
       <div
-        className="h-full w-max bg-presas bg-contain bg-no-repeat pb-2"
+        className="h-full w-max bg-presas bg-contain bg-no-repeat border-b-2 border-stone-800 mx-auto"
         ref={boardRef}
       >
         <BoardMap onClick={onClick} />

@@ -6,6 +6,7 @@ import SubmitButton from "@/components/common/SubmitButton/SubmitButton";
 import Form from "@/components/ui/Form/Form";
 import TextInput from "@/components/ui/TextInput/TextInput";
 import { routes } from "@/constants/routes";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useActionState, useEffect } from "react";
 import createUser from "../../actions/create-user/createUser";
@@ -26,19 +27,10 @@ export default function SignUpForm({ onSuccess }: SignUpFormProps) {
     const errors = !state.success ? state.errors : undefined;
 
     return (
-        <Form className="w-full max-w-sm" action={formAction}>
+        <Form className="w-full max-w-sm mx-auto" action={formAction}>
             <TextInput
                 className="text-stone-800"
-                label="User name"
-                name="displayName"
-                type="text"
-                placeholder="Enter your user name"
-                required
-            />
-
-            <TextInput
-                className="text-stone-800"
-                label="Email"
+                label="Email*"
                 name="email"
                 type="email"
                 placeholder="Enter your email"
@@ -47,7 +39,16 @@ export default function SignUpForm({ onSuccess }: SignUpFormProps) {
 
             <TextInput
                 className="text-stone-800"
-                label="Password"
+                label="Name*"
+                name="displayName"
+                type="text"
+                placeholder="Enter your name"
+                required
+            />
+
+            <TextInput
+                className="text-stone-800"
+                label="Password*"
                 name="password"
                 type="password"
                 minLength={8}
@@ -57,8 +58,11 @@ export default function SignUpForm({ onSuccess }: SignUpFormProps) {
             {!!errors?.errors?.length && <ErrorBlock errors={[errors.errors].flat()} />}
 
             <SubmitButton disabled={pending}>
-                {pending ? <Spinner className="max-h-6 max-w-6" /> : "Login"}
+                {pending ? <Spinner className="max-h-6 max-w-6" /> : "Sign up"}
             </SubmitButton>
+
+            <p className="text-left">Already have an account? <Link className="cursor-pointer hover:underline font-semibold" href={routes.login}>Login</Link></p>
+
         </Form>
     );
 }
