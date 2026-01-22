@@ -1,7 +1,7 @@
 "use server";
 
 import { UserDto } from "@/domain/dtos/User.dto";
-import { auth } from "@/lib/firebase/client";
+import { auth } from "@/lib/firebase/server";
 import { z } from "zod";
 import { SignUpSchema } from "../../validation/signUpSchema";
 import { CreateUserResponse } from "./createUser.types";

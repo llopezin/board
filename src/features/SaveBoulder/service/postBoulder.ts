@@ -1,6 +1,6 @@
-import { BoulderListItemDto } from "@/domain/dtos/BoulderListItem.dto";
-import { db } from "@/lib/firebase/client";
 import { collectionNames } from "@/constants/collection-names";
+import { BoulderListItemDto } from "@/domain/dtos/BoulderListItem.dto";
+import { db } from "@/lib/firebase/server";
 
 export default async function postBoulder(boulder: Omit<BoulderListItemDto, "id">) {
     try {

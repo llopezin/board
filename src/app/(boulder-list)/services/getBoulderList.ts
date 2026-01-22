@@ -1,7 +1,7 @@
-import { BoulderListItemDto } from "@/domain/dtos/BoulderListItem.dto";
-import { db } from "@/lib/firebase/client";
-import { GetBoulderListReturn } from "./getBoulderList.types";
 import { collectionNames } from "@/constants/collection-names";
+import { BoulderListItemDto } from "@/domain/dtos/BoulderListItem.dto";
+import { db } from "@/lib/firebase/server";
+import { GetBoulderListReturn } from "./getBoulderList.types";
 
 export default async function getBoulderList(): GetBoulderListReturn {
     try {

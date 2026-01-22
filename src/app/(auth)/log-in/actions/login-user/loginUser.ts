@@ -1,6 +1,7 @@
 'use server';
 
-import { auth, clientAuth } from "@/lib/firebase/client";
+import { clientAuth } from "@/lib/firebase/client";
+import { auth } from "@/lib/firebase/server";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { LoginUserResponse } from "./loginUser.types";
 
