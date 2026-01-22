@@ -1,13 +1,16 @@
+import CreateBoulder from "@/app/create-boulder/components/CreateBoulder/CreateBoulder";
+import "@/app/styles/globals.css";
+import holdStyles from "@/features/Board/styles";
 import { expect, test, vi } from "vitest";
 import { render } from "vitest-browser-react";
 import { userEvent } from "vitest/browser";
-import "@/app/styles/globals.css";
-import CreateBoulder from "@/app/create-boulder/components/CreateBoulder/CreateBoulder";
-import holdStyles from "@/features/Board/styles";
-
 
 vi.mock('next/navigation', () => ({
   useRouter: vi.fn(),
+}));
+
+vi.mock('@/features/SaveBoulder/actions/saveBoulder', () => ({
+  default: vi.fn(() => Promise.resolve({ success: true })),
 }));
 
 test("Create boulder: First click sets hold as start", async () => {
@@ -25,7 +28,6 @@ test("Create boulder: Second click toggles hold off", async () => {
   const { getByTestId } = await render(<CreateBoulder />);
 
   await userEvent.click(getByTestId("test-hold"));
-
 
   for (const className of holdStyles.start) {
     await expect.element(getByTestId("test-hold")).not.toHaveClass(className);
