@@ -20,6 +20,7 @@
 
 - [x] FIX - On create boulder, redirect to boulder list
 - [x] FIX - Add padding around modal close button
+- [ ] Where is the boulder name input lol? 
 - [ ] Add back button to modal?
 - [ ] Pinch zoom only on main area
 - [ ] Block save button until start and top hold are added
