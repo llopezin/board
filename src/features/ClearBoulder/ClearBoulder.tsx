@@ -1,4 +1,4 @@
-import useNewBoulderStore from "@/app/(create-boulder)/store/NewBoulderStore"
+import useNewBoulderStore from "@/app/create-boulder/store/NewBoulderStore"
 import ClearIcon from "@/components/icons/clear"
 
 

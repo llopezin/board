@@ -1,14 +1,37 @@
-import { expect, test, beforeAll, vi } from "vitest";
+import CreateBoulder from "@/app/create-boulder/components/CreateBoulder/CreateBoulder";
+import "@/app/styles/globals.css";
+import { saveBoulderErrors } from "@/features/SaveBoulder/constants/errorsMessages";
+import { beforeAll, expect, test, vi } from "vitest";
 import { render } from "vitest-browser-react";
 import { userEvent } from "vitest/browser";
-import "@/app/styles/globals.css";
-import CreateBoulder from "@/app/(create-boulder)/components/CreateBoulder/CreateBoulder";
-import { saveBoulderErrors } from "@/features/SaveBoulder/constants/errorsMessages";
 
 vi.mock('next/navigation', () => ({
   useRouter: vi.fn(() => ({
     push: vi.fn(),
   })),
+}));
+
+vi.mock('@/features/SaveBoulder/actions/saveBoulder', () => ({
+  default: vi.fn((_state: unknown, formData: FormData) => {
+    const name = formData.get("name") as string;
+    const boulderData = formData.get("boulder") as string;
+    const boulder = JSON.parse(boulderData);
+
+    const errors: string[] = [];
+    const existingBoulders = JSON.parse(window.localStorage.getItem("boulderList") || "[]");
+
+    if (!boulder.start.length) errors.push("Boulder must have a start hold");
+    if (!boulder.top.length) errors.push("Boulder must have a top hold");
+    if (existingBoulders.some((b: { name: string }) => b.name === name)) {
+      errors.push("A boulder with this name already exists");
+    }
+
+    if (errors.length) return Promise.resolve({ success: false, errors });
+
+    existingBoulders.push({ name, boulder });
+    window.localStorage.setItem("boulderList", JSON.stringify(existingBoulders));
+    return Promise.resolve({ success: true });
+  }),
 }));
 
 beforeAll(() => {

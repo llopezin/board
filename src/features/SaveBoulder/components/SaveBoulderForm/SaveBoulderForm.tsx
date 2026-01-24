@@ -1,10 +1,12 @@
-import TextInput from "@/components/ui/TextInput/TextInput";
-import { SaveBoulderFormProps } from "./SaveBoulderForm.types";
-import { boulderGrades } from "@/domain/contants/boulderGrades";
-import Select from "@/components/ui/Select";
 import ErrorBlock from "@/components/common/ErrorBlock/ErrorBlock";
-import { useActionState, useEffect } from "react";
 import { Spinner } from "@/components/common/Spinner/Spinner";
+import SubmitButton from "@/components/common/SubmitButton/SubmitButton";
+import Form from "@/components/ui/Form/Form";
+import Select from "@/components/ui/Select";
+import TextInput from "@/components/ui/TextInput/TextInput";
+import { boulderGrades } from "@/domain/contants/boulderGrades";
+import { useActionState, useEffect } from "react";
+import { SaveBoulderFormProps } from "./SaveBoulderForm.types";
 
 const initalFormState = { errors: [], success: false };
 
@@ -15,8 +17,8 @@ const SaveBoulderForm = ({ saveFn, boulder, onSuccess }: SaveBoulderFormProps) =
   useEffect(() => { if (success) onSuccess(); }, [success]);
 
   return (
-    <form
-      className="flex flex-col gap-5 w-3/4 max-w-xl -mt-8"
+    <Form
+      className="w-3/4 max-w-xl -mt-8"
       action={formAction}
     >
       <input type="hidden" name="boulder" value={JSON.stringify(boulder)} />
@@ -53,10 +55,10 @@ const SaveBoulderForm = ({ saveFn, boulder, onSuccess }: SaveBoulderFormProps) =
 
       {!!errors?.length && <ErrorBlock errors={errors} />}
 
-      <button disabled={pending} data-testid="test-save-boulder" className="bg-purple-400 p-2 rounded disabled:opacity-50" type="submit">
+      <SubmitButton disabled={pending} data-testid="test-save-boulder">
         {pending ? <Spinner className="max-h-6 max-w-6" /> : "Save Boulder"}
-      </button>
-    </form>
+      </SubmitButton>
+    </Form>
   );
 };
 

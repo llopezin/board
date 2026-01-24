@@ -1,5 +1,3 @@
-import React from "react";
-
 const CloseIcon = ({ className }: { className: string }) => {
   return (
     <svg

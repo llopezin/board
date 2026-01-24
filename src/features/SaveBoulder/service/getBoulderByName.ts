@@ -1,5 +1,5 @@
-import { db } from "@/lib/firebase/client";
 import { collectionNames } from "@/constants/collection-names";
+import { db } from "@/lib/firebase/server";
 
 export default async function getBoulderByName(name: string) {
     try {

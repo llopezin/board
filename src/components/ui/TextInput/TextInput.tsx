@@ -1,9 +1,8 @@
-import React from "react";
-import { TextInputProps } from "./types";
 import { cn } from "@/utils/cn";
+import { TextInputProps } from "./types";
 
 const baseClasses = "px-3 py-2 rounded";
-const labelBaseClasses = "text-sm font-medium";
+const labelBaseClasses = "flex flex-col gap-2 text-sm font-medium";
 
 const TextInput = ({
   label,
@@ -11,17 +10,12 @@ const TextInput = ({
   labelClassName,
   ...props
 }: TextInputProps) => {
-  const id = React.useId();
 
   return (
-    <>
-      {label && (
-        <label htmlFor={id} className={cn(labelBaseClasses, labelClassName)}>
-          {label}
-        </label>
-      )}
-      <input className={cn(baseClasses, className)} {...props} id={id} />
-    </>
+    <label className={labelBaseClasses}>
+      <span className={labelClassName}>{label}</span>
+      <input className={cn(baseClasses, className)} {...props} />
+    </label>
   );
 };
 
