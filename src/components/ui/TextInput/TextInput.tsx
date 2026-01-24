@@ -1,5 +1,4 @@
 import { cn } from "@/utils/cn";
-import React from "react";
 import { TextInputProps } from "./types";
 
 const baseClasses = "px-3 py-2 rounded";
@@ -11,18 +10,13 @@ const TextInput = ({
   labelClassName,
   ...props
 }: TextInputProps) => {
-  const id = React.useId();
 
-  if (label) {
-    return (
-      <label htmlFor={id} className={cn(labelBaseClasses, labelClassName)}>
-        {label}
-        <input className={cn(baseClasses, className)} {...props} id={id} />
-      </label>
-    );
-  }
-
-  return <input className={cn(baseClasses, className)} {...props} id={id} />;
+  return (
+    <label className={labelBaseClasses}>
+      <span className={labelClassName}>{label}</span>
+      <input className={cn(baseClasses, className)} {...props} />
+    </label>
+  );
 };
 
 export default TextInput;

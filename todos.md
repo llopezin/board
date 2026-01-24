@@ -15,28 +15,36 @@
 
 - [x] Add database
 - [x] Add database rules and handle errors (check type on post)
-- [ ] Add authentication
-- [ ] Add tRPC
+- [x] Add authentication
 
 - [x] FIX - On create boulder, redirect to boulder list
 - [x] FIX - Add padding around modal close button
-- [ ] Where is the boulder name input lol? 
-- [ ] Add back button to modal?
+- [x] Where is the boulder name input lol? 
+
+- [ ] Add Email validation
+- [ ] Add sign in with google
+
+- [ ] Selecting a hold is too slow, lets do update ui first then state update 
+- [ ] make click area larger
+- [ ] Add filter by grade on boulder list
+- [ ] Add pagination on boulder list (virtualise?)
 - [ ] Pinch zoom only on main area
 - [ ] Block save button until start and top hold are added
-- [ ] Add create boulder button to boulder list
+- [ ] Add search by name on boulder list
+- [ ] Add proper back navigation
 
+- [ ] Add back button to modal?
+- [ ] Add create boulder button to boulder list
+- [ ] Will it make sense to remove list button and handle app nav via back navigation?
 - [ ] Add boulder list item dto keys as string constants in object
 
-- [ ] Add pagination on boulder list (virtualise)
-- [ ] Add filter by grade on boulder list
-- [ ] Add search by name on boulder list
 
 - [ ] Remove boulder from list button
 - [ ] Clear errors
 - [ ] Edition board
 - [ ] Boulder not found page
 
+- [ ] Add tRPC
 - [ ] Update react version
 - [ ] Move boulder type to domain
 - [ ] Update metadata to proper name and description

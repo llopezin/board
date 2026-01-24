@@ -6,7 +6,7 @@ import Link from "next/link";
 export default function GoToBoulderListButton() {
     return (
         <Link className="text-white flex flex-col items-center justify-center py-2" href={routes.boulderList}>
-            <span className="text-xs">Climb</span>
+            <span className="text-xs">List</span>
             <BoulderListIcon className="w-6 h-6 [&>path]:stroke-white" />
         </Link>
     )
