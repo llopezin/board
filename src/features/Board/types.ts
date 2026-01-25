@@ -28,7 +28,7 @@ type paintBoulderArgs = {
 type ActivateHoldsArgs = {
   holdIds: string[];
   holdType: string;
-  boardRef: React.RefObject<HTMLDivElement | null>;
+  boardRef?: React.RefObject<HTMLDivElement | null>;
 };
 
 type HoldIdsDifference = {
@@ -56,16 +56,8 @@ enum HoldTypes {
 }
 
 export type {
-  BoardProps,
-  HoldId,
-  Boulder,
-  paintBoulderArgs,
-  ActivateHoldsArgs,
-  TwoHoldIdsList,
-  Difference,
-  PaintDifferenceArgs,
-  BoulderEntries,
-  HoldIdsDifference,
+  ActivateHoldsArgs, BoardProps, Boulder, BoulderEntries, Difference, HoldId, HoldIdsDifference, paintBoulderArgs, PaintDifferenceArgs, TwoHoldIdsList
 };
 
 export { HoldTypes, ToggleHoldActions };
+

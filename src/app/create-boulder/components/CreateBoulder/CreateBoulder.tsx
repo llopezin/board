@@ -1,21 +1,21 @@
 "use client";
 
-import useNewBoulderStore from "../../store/NewBoulderStore";
-import { NewBoulderStore } from "../../store/types";
-import { useShallow } from "zustand/shallow";
-import UseCreateBoulderActions from "../../hooks/useCreationBoardActions";
-import Board from "@/features/Board/Board";
+import BoardFooter from "@/components/common/BoardFooter/BoardFooter";
+import BoardHeaderBar from "@/components/common/BoardHeaderNav/BoardHeaderBar";
 import BoardHeaderNav from "@/components/common/BoardHeaderNav/BoardHeaderNav";
-import SaveBoulder from "@/features/SaveBoulder/SaveBoulder";
+import GoToBoulderListButton from "@/components/common/GoToBoulderListButton/GoToBoulderListButton";
 import HoldTypeSelector from "@/components/common/HoldTypeSelector/HoldTypeSelector";
 import YScrollContainer from "@/components/common/YScrollContainer/YScrollContainer";
-import BoardFooter from "@/components/common/BoardFooter/BoardFooter";
-import ClearBoulder from "@/features/ClearBoulder/ClearBoulder";
-import GoToBoulderListButton from "@/components/common/GoToBoulderListButton/GoToBoulderListButton";
-import BoardHeaderBar from "@/components/common/BoardHeaderNav/BoardHeaderBar";
-import saveBoulder from "@/features/SaveBoulder/actions/saveBoulder";
-import { useRouter } from "next/navigation";
 import { routes } from "@/constants/routes";
+import Board from "@/features/Board/Board";
+import ClearBoulder from "@/features/ClearBoulder/ClearBoulder";
+import saveBoulder from "@/features/SaveBoulder/actions/saveBoulder";
+import SaveBoulder from "@/features/SaveBoulder/SaveBoulder";
+import { useRouter } from "next/navigation";
+import { useShallow } from "zustand/shallow";
+import UseCreateBoulderActions from "../../hooks/useCreationBoardActions";
+import useNewBoulderStore from "../../store/NewBoulderStore";
+import { NewBoulderStore } from "../../store/types";
 
 const creationBoardStateSelector = (state: NewBoulderStore) => ({
   boulder: state.boulder,

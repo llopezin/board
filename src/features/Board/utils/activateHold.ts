@@ -6,11 +6,8 @@ function toggleHolds(
   { holdIds, holdType, boardRef }: ActivateHoldsArgs,
   action: ToggleHoldActions
 ) {
-  const boardElement = boardRef.current;
-  if (!boardElement) return;
-
   const classes = holdStyles[holdType as HoldTypes];
-  const board = boardRef.current;
+  const board = boardRef?.current || document.body;
 
   holdIds.forEach((holdId) => {
     const holdElement = board?.querySelector(holdSelector(holdId));
