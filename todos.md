@@ -32,6 +32,7 @@
 - [ ] Block save button until start and top hold are added
 - [ ] Add search by name on boulder list
 - [ ] Add proper back navigation
+- [ ] How did I miss TWO holds? Again? - Go back to figma and map them
 
 - [ ] Add back button to modal?
 - [ ] Add create boulder button to boulder list
