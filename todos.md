@@ -24,8 +24,8 @@
 - [ ] Add Email validation
 - [ ] Add sign in with google
 
-- [ ] Selecting a hold is too slow, lets do update ui first then state update 
-- [ ] make click area larger
+- [x] Selecting a hold is too slow, lets do update ui first then state update 
+- [ ] Make click area larger
 - [ ] Add filter by grade on boulder list
 - [ ] Add pagination on boulder list (virtualise?)
 - [ ] Pinch zoom only on main area
