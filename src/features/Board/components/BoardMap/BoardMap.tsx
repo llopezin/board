@@ -3,7 +3,7 @@ import BoardMapProps from "./types";
 const BoardMap = ({ onClick }: BoardMapProps) => {
   return (
     <svg
-      className="block h-full !w-auto [&>[data-hold-id]]:fill-transparent"
+      className="block h-full !w-auto [&>[data-hold-id]]:fill-transparent [&>[data-hold-id]]:stroke-transparent [&>[data-hold-id]]:stroke-[24px]"
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 2893 3368"
       onClick={onClick}

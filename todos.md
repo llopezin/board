@@ -24,10 +24,12 @@
 - [ ] Add Email validation
 - [ ] Add sign in with google
 
-- [ ] Selecting a hold is too slow, lets do update ui first then state update 
-- [ ] make click area larger
-- [ ] Add filter by grade on boulder list
+- [x] Selecting a hold is too slow, lets do update ui first then state update 
+- [x] Make click area larger
+- [x] Add filter by grade on boulder list
+
 - [ ] Add pagination on boulder list (virtualise?)
+- [ ] Weird flash of empty login after login
 - [ ] Pinch zoom only on main area
 - [ ] Block save button until start and top hold are added
 - [ ] Add search by name on boulder list
