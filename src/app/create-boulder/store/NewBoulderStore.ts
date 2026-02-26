@@ -1,9 +1,9 @@
+import { emptyBoulder } from "@/features/Board/constants/initialisers";
+import { Boulder, HoldId, HoldTypes } from "@/features/Board/types";
 import { create } from "zustand";
-import { NewBoulderStore } from "./types";
 import { devtools } from "zustand/middleware";
 import { immer } from "zustand/middleware/immer";
-import { Boulder, HoldId, HoldTypes } from "@/features/Board/types";
-import { emptyBoulder } from "@/features/Board/constants/initialisers";
+import { NewBoulderStore } from "./types";
 
 const initialState = {
   boulder: { ...emptyBoulder },
@@ -28,7 +28,7 @@ const useNewBoulderStore = create<
           );
         }),
       setActiveType: (type) => set({ activeType: type }),
-      clearBoulder: () => set((state) => {
+      cleanStoredBoulder: () => set((state) => {
         state.boulder = initialState.boulder as unknown as Boulder;
         state.activeType = HoldTypes.START;
       }),

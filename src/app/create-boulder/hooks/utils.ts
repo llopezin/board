@@ -6,7 +6,7 @@ export function isHoldActive({ holdId, boulder }: IsHoldActiveProps) {
 
     for (const [holdType, holdIds] of boulderEntries) {
         if (holdIds.includes(holdId)) {
-            return { holdType: holdType, isActive: true };
+            return { holdType, isActive: true };
         }
     }
 

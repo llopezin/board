@@ -1,10 +1,6 @@
-import useNewBoulderStore from "@/app/create-boulder/store/NewBoulderStore"
 import ClearIcon from "@/components/icons/clear"
 
-
-export default function ClearBoulder() {
-    const { clearBoulder } = useNewBoulderStore()
-
+export default function ClearBoulder({ clearBoulder }: { clearBoulder: () => void }) {
     return (
         <div className="flex flex-col items-center">
             <button className="p-2" onClick={clearBoulder} title="clear boulder">
