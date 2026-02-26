@@ -21,19 +21,18 @@ const creationBoardStateSelector = (state: NewBoulderStore) => ({
   boulder: state.boulder,
   setActiveType: state.setActiveType,
   activeType: state.activeType,
-  clearBoulder: state.clearBoulder,
 });
 
 export default function CreateBoulder() {
   const router = useRouter();
-  const { onBoardClick } = UseCreateBoulderActions();
+  const { onBoardClick, clearBoard } = UseCreateBoulderActions();
   const memoizedSelector = useShallow(creationBoardStateSelector);
 
-  const { boulder, setActiveType, activeType, clearBoulder } =
+  const { boulder, setActiveType, activeType } =
     useNewBoulderStore(memoizedSelector);
 
   const onSuccess = () => {
-    clearBoulder();
+    clearBoard();
     router.push(routes.boulderList)
   };
 
@@ -52,7 +51,7 @@ export default function CreateBoulder() {
       <BoardFooter>
         <HoldTypeSelector setActiveType={setActiveType} activeType={activeType} />
         <div className="flex gap-2 items-center">
-          <ClearBoulder />
+          <ClearBoulder clearBoulder={clearBoard} />
           <SaveBoulder saveFn={saveBoulder} boulder={boulder} onSuccess={onSuccess} />
         </div>
       </BoardFooter>

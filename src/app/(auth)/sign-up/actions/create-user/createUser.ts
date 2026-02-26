@@ -40,7 +40,7 @@ export default async function createUser(_state: CreateUserResponse, formData: F
     } catch (error) {
         console.error("Error creating user:", error);
         return {
-            errors: { errors: "Sign up fail" },
+            errors: { errors: "Sign up failed" },
             success: false,
         };
     }

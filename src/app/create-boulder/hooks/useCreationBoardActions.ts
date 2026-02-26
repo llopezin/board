@@ -6,7 +6,7 @@ import { HandleMoreThanTwoStartsArgs } from "./types";
 import { isHoldActive } from "./utils";
 
 export default function UseCreateBoulderActions() {
-  const { setActiveType, removeHold, activeType, setHold, boulder } =
+  const { setActiveType, removeHold, activeType, setHold, boulder, cleanStoredBoulder } =
     useNewBoulderStore();
 
   function handleMoreThanTwoTops() {
@@ -40,7 +40,7 @@ export default function UseCreateBoulderActions() {
     const updatedActiveHoldType: HoldTypes[] = [];
 
     if (isActive) {
-      deactivateHolds({ holdIds: [holdId], holdType: activeType });
+      deactivateHolds({ holdIds: [holdId], holdType: holdType! });
       removeHold(holdId, holdType!)
       return;
     };
@@ -54,7 +54,16 @@ export default function UseCreateBoulderActions() {
     setHold(holdId, updatedActiveHoldType[0] || activeType);
   }
 
+  function clearBoard() {
+    Object.entries(boulder).forEach(([holdType, holdIds]) => {
+      deactivateHolds({ holdIds, holdType });
+    });
+
+    cleanStoredBoulder();
+  }
+
   return {
     onBoardClick,
+    clearBoard,
   };
 }
