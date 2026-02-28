@@ -6,6 +6,7 @@ type BoulderEntries = [HoldTypes, HoldId[]][];
 type BoardProps = {
   onClick?: (event: React.MouseEvent<SVGElement>) => void;
   boulder?: Boulder;
+  className?: string;
 };
 
 type Boulder = {
