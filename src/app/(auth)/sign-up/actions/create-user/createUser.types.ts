@@ -18,4 +18,9 @@ export type CreateUserResponse =
     | {
         success: false;
         errors: CreateUserErrors;
+        properties?: {
+            [key: string]: {
+                errors: string[];
+            };
+        };
     };

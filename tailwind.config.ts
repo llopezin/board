@@ -12,6 +12,9 @@ export default {
   ],
   theme: {
     extend: {
+      scale: {
+        '-100': '-1',
+      },
       backgroundImage: {
         presas: 'url("/presas.png")',
       },

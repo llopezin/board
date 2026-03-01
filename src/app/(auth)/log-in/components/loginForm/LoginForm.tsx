@@ -2,7 +2,7 @@
 
 import { getUserWithEmailAndPassword } from "@/app/(auth)/log-in/actions/login-user/loginUser";
 import ErrorBlock from "@/components/common/ErrorBlock/ErrorBlock";
-import { Spinner } from "@/components/common/Spinner/Spinner";
+import Spinner from "@/components/common/Spinner/Spinner";
 import SubmitButton from "@/components/common/SubmitButton/SubmitButton";
 import Form from "@/components/ui/Form/Form";
 import TextInput from "@/components/ui/TextInput/TextInput";

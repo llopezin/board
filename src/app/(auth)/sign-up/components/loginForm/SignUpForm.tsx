@@ -1,7 +1,7 @@
 "use client";
 
 import ErrorBlock from "@/components/common/ErrorBlock/ErrorBlock";
-import { Spinner } from "@/components/common/Spinner/Spinner";
+import Spinner from "@/components/common/Spinner/Spinner";
 import SubmitButton from "@/components/common/SubmitButton/SubmitButton";
 import Form from "@/components/ui/Form/Form";
 import TextInput from "@/components/ui/TextInput/TextInput";
@@ -24,7 +24,17 @@ export default function SignUpForm({ onSuccess }: SignUpFormProps) {
         };
     }, [state]);
 
-    const errors = !state.success ? state.errors : undefined;
+    const errors: string[] = [];
+
+    if (!state.success) {
+        const stateErrors = [state.errors.errors].flat();
+        errors.push(...stateErrors);
+
+        if (state.errors.properties) {
+            const propertyErrors = Object.values(state.errors.properties).flatMap((p) => p.errors);
+            errors.push(...propertyErrors);
+        }
+    }
 
     return (
         <Form className="w-full max-w-sm mx-auto" action={formAction}>
@@ -36,7 +46,7 @@ export default function SignUpForm({ onSuccess }: SignUpFormProps) {
                 placeholder="Enter your email"
                 required
             />
-
+            {JSON.stringify({ state })}
             <TextInput
                 className="text-stone-800"
                 label="Name*"
@@ -55,14 +65,13 @@ export default function SignUpForm({ onSuccess }: SignUpFormProps) {
                 required
             />
 
-            {!!errors?.errors?.length && <ErrorBlock errors={[errors.errors].flat()} />}
+            {!!errors?.length && <ErrorBlock errors={errors} />}
 
             <SubmitButton disabled={pending}>
                 {pending ? <Spinner className="max-h-6 max-w-6" /> : "Sign up"}
             </SubmitButton>
 
             <p className="text-left">Already have an account? <Link className="cursor-pointer hover:underline font-semibold" href={routes.login}>Login</Link></p>
-
         </Form>
     );
 }
