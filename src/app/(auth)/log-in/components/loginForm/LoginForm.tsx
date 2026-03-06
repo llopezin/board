@@ -28,6 +28,7 @@ export default function LoginForm({ onSuccess }: LoginFormProps) {
 
     return (
         <Form className="w-full max-w-sm" action={formAction}>
+            <h1 className="text-2xl font-bold mb-1">Log in</h1>
 
             <TextInput
                 className="text-stone-800"

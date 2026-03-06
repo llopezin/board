@@ -38,6 +38,8 @@ export default function SignUpForm({ onSuccess }: SignUpFormProps) {
 
     return (
         <Form className="w-full max-w-sm mx-auto" action={formAction}>
+            <h1 className="text-2xl font-bold mb-1">Sign up</h1>
+
             <TextInput
                 className="text-stone-800"
                 label="Email*"
