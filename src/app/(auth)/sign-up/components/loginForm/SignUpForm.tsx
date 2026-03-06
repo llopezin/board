@@ -46,7 +46,7 @@ export default function SignUpForm({ onSuccess }: SignUpFormProps) {
                 placeholder="Enter your email"
                 required
             />
-            {JSON.stringify({ state })}
+
             <TextInput
                 className="text-stone-800"
                 label="Name*"
