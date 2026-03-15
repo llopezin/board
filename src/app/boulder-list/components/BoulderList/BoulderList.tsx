@@ -1,9 +1,9 @@
 "use client";
 
-import BoulderListItem from "../BoulderListItem/BoulderListItem";
 import FullWidthList from "@/components/common/FullWidthList/FullWidthList";
-import type { BoulderListProps } from "./BoulderList.types";
 import { use } from "react";
+import BoulderListItem from "../BoulderListItem/BoulderListItem";
+import type { BoulderListProps } from "./BoulderList.types";
 
 const errorClasses = "text-white text-xl text-center";
 
@@ -13,6 +13,7 @@ const BoulderList = ({ boulderList }: BoulderListProps) => {
 
   if (fetchError) return <p className={errorClasses}>Error fetching boulders list</p>;
   if (!bouldersList.length) return <p className={errorClasses}>No boulders created yet</p>;
+  console.log('bouldersList: ', bouldersList);
 
   return (
     <FullWidthList>
