@@ -1,9 +1,6 @@
 "use client";
 
 import BoardFooter from "@/components/common/BoardFooter/BoardFooter";
-import BoardHeaderBar from "@/components/common/BoardHeaderNav/BoardHeaderBar";
-import BoardHeaderNav from "@/components/common/BoardHeaderNav/BoardHeaderNav";
-import GoToBoulderListButton from "@/components/common/GoToBoulderListButton/GoToBoulderListButton";
 import HoldTypeSelector from "@/components/common/HoldTypeSelector/HoldTypeSelector";
 import YScrollContainer from "@/components/common/YScrollContainer/YScrollContainer";
 import { routes } from "@/constants/routes";
@@ -37,13 +34,7 @@ export default function CreateBoulder() {
   };
 
   return (
-    <div className="relative grid grid-rows-[auto_1fr_auto] h-dvh">
-      <BoardHeaderBar>
-        <BoardHeaderNav>
-          <GoToBoulderListButton />
-        </BoardHeaderNav>
-      </BoardHeaderBar>
-
+    < >
       <YScrollContainer>
         <Board onClick={onBoardClick} boulder={boulder} />
       </YScrollContainer>
@@ -55,6 +46,6 @@ export default function CreateBoulder() {
           <SaveBoulder saveFn={saveBoulder} boulder={boulder} onSuccess={onSuccess} />
         </div>
       </BoardFooter>
-    </div>
+    </>
   );
 }

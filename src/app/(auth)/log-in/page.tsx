@@ -11,8 +11,7 @@ export default function LoginPage() {
     };
 
     return (
-        <div className="flex flex-col items-center justify-center min-h-screen text-white">
-            <h1 className="text-2xl font-bold mb-6">Log in</h1>
+        <div className="flex flex-col items-center justify-center min-h-screen text-white -mt-[10vh]">
             <LoginForm onSuccess={handleSuccess} />
         </div>
     );

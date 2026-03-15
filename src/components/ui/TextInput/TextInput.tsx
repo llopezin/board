@@ -2,7 +2,7 @@ import { cn } from "@/utils/cn";
 import { TextInputProps } from "./types";
 
 const baseClasses = "px-3 py-2 rounded";
-const labelBaseClasses = "flex flex-col gap-2 text-sm font-medium";
+const labelBaseClasses = "flex flex-col gap-1 text-sm font-medium";
 
 const TextInput = ({
   label,

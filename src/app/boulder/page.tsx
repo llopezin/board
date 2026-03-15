@@ -1,15 +1,16 @@
-import { redirect } from "next/navigation";
-import Boulder from "./components/Boulder/Boulder";
-import { routes } from "@/constants/routes";
+import BoardHeaderBar from "@/components/common/BoardHeaderNav/BoardHeaderBar";
 import BoardHeaderNav from "@/components/common/BoardHeaderNav/BoardHeaderNav";
+import GoBackButton from "@/components/common/GoBackButton/GoBackButton";
 import GoToBoulderListButton from "@/components/common/GoToBoulderListButton/GoToBoulderListButton";
 import GoToCreateBoulderButton from "@/components/common/GoToCreateBoulderButton/GoToCreateBoulderButton";
-import GoBackButton from "@/components/common/GoBackButton/GoBackButton";
-import BoardHeaderBar from "@/components/common/BoardHeaderNav/BoardHeaderBar";
-import BoulderName from "./components/BoulderName/BoulderName";
-import getBoulder from "./services/getBoulder";
-import { Suspense } from "react";
+import { routes } from "@/constants/routes";
 import Board from "@/features/Board/Board";
+import { redirect } from "next/navigation";
+import { Suspense } from "react";
+import Boulder from "./components/Boulder/Boulder";
+import BoulderName from "./components/BoulderName/BoulderName";
+import FlipBoulder from "./components/FlipBoulder/FlipBoulder";
+import getBoulder from "./services/getBoulder";
 
 export default async function BoulderPage({
   searchParams,
@@ -29,6 +30,7 @@ export default async function BoulderPage({
       <BoardHeaderBar>
         <GoBackButton />
         <BoardHeaderNav>
+          <FlipBoulder />
           <GoToCreateBoulderButton />
           <GoToBoulderListButton />
         </BoardHeaderNav>

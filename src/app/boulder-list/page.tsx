@@ -1,6 +1,6 @@
 'use client';
 
-import { Spinner } from "@/components/common/Spinner/Spinner";
+import Spinner from "@/components/common/Spinner/Spinner";
 import { BoulderGrade } from "@/domain/contants/boulderGrades";
 import { Suspense, useState } from "react";
 import BoulderList from "./components/BoulderList/BoulderList";

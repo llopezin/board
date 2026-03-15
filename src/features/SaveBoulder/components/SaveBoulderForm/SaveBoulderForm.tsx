@@ -1,5 +1,5 @@
 import ErrorBlock from "@/components/common/ErrorBlock/ErrorBlock";
-import { Spinner } from "@/components/common/Spinner/Spinner";
+import Spinner from "@/components/common/Spinner/Spinner";
 import SubmitButton from "@/components/common/SubmitButton/SubmitButton";
 import Form from "@/components/ui/Form/Form";
 import Select from "@/components/ui/Select";
