@@ -1,5 +1,6 @@
 "use client"
 
+import { routes } from "@/constants/routes";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 import { HoldLeft } from "./components/HoldLeft";
@@ -8,10 +9,10 @@ import { HoldRight } from "./components/HoldRight";
 export default function Page() {
     const router = useRouter();
     useEffect(() => {
-        router.prefetch('/boulder-list')
+        router.prefetch(routes.boulderList)
 
         setTimeout(() => {
-            router.push("/boulder-list");
+            router.push(routes.boulderList);
         }, 3000);
     }, [router]);
 

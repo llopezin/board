@@ -29,7 +29,7 @@ function GradeSelector({ setGrades, grades }: GradeSelectorProps) {
                     {boulderGrades.map((grade) => (
                         <div key={grade}>
                             <input className="peer sr-only" onChange={handleChange} type="checkbox" id={grade} name="grade" value={grade} checked={!!grades && grades.includes(grade)} />
-                            <label className="border border-white peer-checked:bg-purple-400 px-3 py-1 block rounded-full text-white font-bold" htmlFor={grade}>
+                            <label className="border-2 border-purple-400 peer-checked:bg-purple-400 px-3 py-1 block rounded-full text-white font-bold" htmlFor={grade}>
                                 <span>{grade}</span>
                             </label>
                         </div>
